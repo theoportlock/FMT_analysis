@@ -1,0 +1,4 @@
+,day,sig_increase,sig_decrease
+0,30,"['BNR_3', 'DrsE_2', 'DUF2007', 'DUF3788', 'DUF3871', 'DUF4838', 'Glyco_tran_WbsX', 'Yae1_N']",['DUF697']
+1,7,"['CENP-C_C', 'DUF3788', 'DUF3795', 'OmdA', 'Yae1_N']","['DUF5028', 'Guanylate_cyc', 'HA', 'Lectin_C', 'RnlA_toxin']"
+2,90,"['ABC_cobalt', 'Antigen_C', 'CP_ATPgrasp_2', 'CrgA', 'DSHCT', 'DUF1729', 'DUF1964', 'DUF2183', 'DUF2437', 'DUF2469', 'DUF3000', 'DUF3027', 'DUF3039', 'DUF3043', 'DUF3046', 'DUF3052', 'DUF3071', 'DUF3073', 'DUF3107', 'DUF3152', 'DUF3159', 'DUF3180', 'DUF3375', 'DUF3416', 'DUF3516', 'DUF3566', 'DUF3662', 'DUF3710', 'DUF4032', 'DUF4193', 'DUF4235', 'DUF4244', 'DUF4411', 'DUF4418', 'DUF4916', 'DUF501', 'Fructosamin_kin', 'GCD14_N', 'H_kinase_N', 'LRV', 'OpcA_G6PD_assem', 'PAC2', 'Phage_holin_4_2', 'Phasin', 'PMM', 'Prot_ATP_ID_OB', 'Pup', 'Pup_ligase', 'RbpA', 'THDPS_M', 'TruB_C', 'UPF0182', 'VKOR', 'Whib', 'YwiC', 'Zincin_2']","['DUF4231', 'Guanylate_cyc', 'HA']"
