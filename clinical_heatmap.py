@@ -48,3 +48,43 @@ siafile['time_point'] = siafile.time_point.astype('int64')
 merged_metadata = pd.merge(siafile, vals,  how='inner', left_on=['id','time_point'], right_on = ['Patient_Id','Days after treatment'])
 numeric_data = merged_metadata.select_dtypes(include=np.number)
 #normalized_df=(numeric_data-numeric_data.min())/(numeric_data.max()-numeric_data.min())
+
+'''
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import networkx as nx
+
+cor_matrix = numeric_data.corr(method='spearman')
+stocks = cor_matrix.index.values
+cor_matrix = np.asmatrix(cor_matrix)
+
+G = nx.from_numpy_matrix(cor_matrix)
+G = nx.relabel_nodes(G,lambda x: stocks[x])
+G.edges(data=True)
+
+#function to create and display networks from the correlatin matrix.
+
+def create_corr_network_1(G):
+    #crates a list for edges and for the weights
+    edges,weights = zip(*nx.get_edge_attributes(G,'weight').items())
+    #positions
+    positions=nx.circular_layout(G)
+    #Figure size
+    plt.figure(figsize=(15,15))
+    #draws nodes
+    nx.draw_networkx_nodes(G,positions,node_color='#DA70D6',
+                           node_size=500,alpha=0.8)
+    #Styling for labels
+    nx.draw_networkx_labels(G, positions, font_size=8,
+                            font_family='sans-serif')
+    #draws the edges
+    nx.draw_networkx_edges(G, positions, edgelist=edges,style='solid')
+    # displays the graph without axis
+    plt.axis('off')
+    #saves image
+    #plt.savefig("part1.png", format="PNG")
+    plt.show()
+
+create_corr_network_1(G)
+'''

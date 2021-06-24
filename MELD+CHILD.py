@@ -10,6 +10,7 @@ from statannot import add_stat_annotation
 def meld(df):
     from numpy import log as ln
     return 3.78 * ln(df['Bilirubin']*10**-6) + 11.2 * ln(df['INR']) + 9.57 * ln(df['Creatinine']) + 6.43
+
 def child_pugh(df):
     result = 0
     if df["Bilirubin"] > 34:
@@ -100,6 +101,6 @@ ax, test_results = add_stat_annotation(
     verbose=2)
 
 
-#plt.show()
+plt.show()
 plt.tight_layout()
-plt.savefig("results/meld_child.pdf")
+#plt.savefig("results/meld_child.pdf")
