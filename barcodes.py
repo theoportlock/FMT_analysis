@@ -77,6 +77,7 @@ box_pairs=[((0,'FMT'),(7,'FMT'))]
 
 # Print
 plt.tight_layout()
-sns.heatmap(gut_msp_patient_data.T,cmap='viridis',vmax=0.00005,yticklabels=True,xticklabels=False)
+sns.heatmap(gut_msp_patient_data.T, cmap='binary', vmax=0.00004, yticklabels=True, xticklabels=False, ax=gut_patient_ax)
+sns.heatmap(oral_msp_patient_data.T, cmap='binary', vmax=0.00004, yticklabels=True, xticklabels=False, ax=oral_patient_ax)
 plt.show()
 #plt.savefig("results/species_richness.pdf")
