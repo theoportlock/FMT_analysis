@@ -49,42 +49,84 @@ merged_metadata = pd.merge(siafile, vals,  how='inner', left_on=['id','time_poin
 numeric_data = merged_metadata.select_dtypes(include=np.number)
 #normalized_df=(numeric_data-numeric_data.min())/(numeric_data.max()-numeric_data.min())
 
-'''
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import networkx as nx
 
 cor_matrix = numeric_data.corr(method='spearman')
-stocks = cor_matrix.index.values
-cor_matrix = np.asmatrix(cor_matrix)
+edges = cor_matrix.stack().reset_index()
+edges.columns = ['asset_1','asset_2','correlation']
+edges = edges.loc[edges['asset_1'] != edges['asset_2']].copy()
 
-G = nx.from_numpy_matrix(cor_matrix)
-G = nx.relabel_nodes(G,lambda x: stocks[x])
-G.edges(data=True)
+#create undirected graph with weights corresponding to the correlation magnitude
+G0 = nx.from_pandas_edgelist(edges, 'asset_1', 'asset_2', edge_attr=['correlation'])
 
-#function to create and display networks from the correlatin matrix.
+#print out the graph info
+#check number of nodes and degrees are as expected (all should have degree = 38, i.e. average degree = 38)
+print(nx.info(G0))
 
-def create_corr_network_1(G):
-    #crates a list for edges and for the weights
-    edges,weights = zip(*nx.get_edge_attributes(G,'weight').items())
-    #positions
-    positions=nx.circular_layout(G)
-    #Figure size
-    plt.figure(figsize=(15,15))
-    #draws nodes
-    nx.draw_networkx_nodes(G,positions,node_color='#DA70D6',
-                           node_size=500,alpha=0.8)
-    #Styling for labels
-    nx.draw_networkx_labels(G, positions, font_size=8,
-                            font_family='sans-serif')
-    #draws the edges
-    nx.draw_networkx_edges(G, positions, edgelist=edges,style='solid')
-    # displays the graph without axis
-    plt.axis('off')
-    #saves image
-    #plt.savefig("part1.png", format="PNG")
-    plt.show()
+# 'winner takes all' method - set minium correlation threshold to remove some edges from the diagram
+threshold = 0.5
 
-create_corr_network_1(G)
-'''
+# create a new graph from edge list
+Gx = nx.from_pandas_edgelist(edges, 'asset_1', 'asset_2', edge_attr=['correlation'])
+
+# list to store edges to remove
+remove = []
+# loop through edges in Gx and find correlations which are below the threshold
+for asset_1, asset_2 in Gx.edges():
+    corr = Gx[asset_1][asset_2]['correlation']
+    #add to remove node list if abs(corr) < threshold
+    if abs(corr) < threshold:
+        remove.append((asset_1, asset_2))
+
+# remove edges contained in the remove list
+Gx.remove_edges_from(remove)
+print(str(len(remove)) + " edges removed")
+
+def assign_colour(correlation):
+    if correlation <= 0:
+        return "#ffa09b"  # red
+    else:
+        return "#9eccb7"  # green
+
+def assign_thickness(correlation, benchmark_thickness=2, scaling_factor=3):
+    return benchmark_thickness * abs(correlation)**scaling_factor
+
+
+def assign_node_size(degree, scaling_factor=50):
+    return degree * scaling_factor
+
+
+# assign colours to edges depending on positive or negative correlation
+# assign edge thickness depending on magnitude of correlation
+edge_colours = []
+edge_width = []
+for key, value in nx.get_edge_attributes(Gx, 'correlation').items():
+    edge_colours.append(assign_colour(value))
+    edge_width.append(assign_thickness(value))
+
+# assign node size depending on number of connections (degree)
+node_size = []
+for key, value in dict(Gx.degree).items():
+    node_size.append(assign_node_size(value))
+
+#create minimum spanning tree layout from Gx (after small correlations have been removed)
+mst = nx.minimum_spanning_tree(Gx)
+
+edge_colours = []
+
+#assign edge colours
+for key, value in nx.get_edge_attributes(mst, 'correlation').items():
+    edge_colours.append(assign_colour(value))
+
+
+#draw minimum spanning tree. Set node size and width to constant
+nx.draw(mst, with_labels=True, pos=nx.fruchterman_reingold_layout(mst),
+        node_size=200, node_color="#e1575c", edge_color=edge_colours,
+       width = 1.2)
+
+#set title
+plt.title("Asset price correlations - Minimum Spanning Tree",fontdict=font_dict)
+plt.show()
