@@ -36,21 +36,21 @@ gut_formatted_names.iloc[:,2] = gut_formatted_names.iloc[:,2].str.replace("Stool
 gut_formatted_names = pd.merge(gut_formatted_names, sample_type, left_on=0, right_on="Patient", how='left')
 #gut_msp_data = gut_msp_data.set_index("Unnamed: 0")
 
-#dtaxa_not_sum = gut_msp_data.join(gut_taxonomy['gene_name']).set_index('gene_name')
-#variable = 'gene_name'
-#repl = gene_info[variable].compute().to_dict()
-#replacedbygenename = gut_msp_data.replace(repl)
-replacedbygenename = gut_msp_data.merge(gene_info,how='inner', left_on='Unnamed: 0', right_on='gene_id')
-replacedbyantismash = replacedbygenename.merge(antismash,how='inner', left_on='gene_name', right_on='gene_name')
-topandas = replacedbyantismash.compute()
-topandas.set_index('sm').filter(regex='FMT').reset_index().groupby('sm').sum()
-secondaries = topandas.set_index('sm').filter(regex='FMT').reset_index().groupby('sm').sum()
+replacedbygenename = gut_msp_data.merge(gene_info, how='inner', left_on='Unnamed: 0', right_on='gene_id')
+replacedbyantismash = replacedbygenename.merge(antismash, how='inner', left_on='gene_name', right_on='gene_name')
+#topandas = replacedbyantismash.compute()
+#topandas.set_index('sm').filter(regex='FMT').reset_index().groupby('sm').sum()
+#secondaries = topandas.set_index('sm').filter(regex='FMT').reset_index().groupby('sm').sum()
+#secondaries = replacedbyantismash.set_index('sm').filter(regex='FMT').reset_index().groupby('sm').sum()
 
-replacedbygenename = gut_msp_data.join(gene_info).set_index('gene_name')
-replacedbygenename = gut_msp_data.join(gene_info)
-replacedbygenename = replacedbygenename.set_index('gene_name')
-replacedbyantismash = gut_msp_data.join(gene_info)
-
+#replacedbygenename = gut_msp_data.join(gene_info).set_index('gene_name')
+#replacedbygenename = gut_msp_data.join(gene_info)
+#replacedbygenename = replacedbygenename.set_index('gene_name')
+#replacedbyantismash = gut_msp_data.join(gene_info)
+#indexed = replacedbyantismash.set_index('sm')
+fmtcols = [col for col in replacedbyantismash.columns if 'FMT' in col]
+fmtcols = fmtcols.append('sm')
+sumofsm = replacedbyantismash[fmtcols].groupby('sm').sum().compute()
 
 secondaries.columns = pd.MultiIndex.from_frame(
         gut_formatted_names[[0,2,'Type']],
