@@ -9,7 +9,8 @@ from statannot import add_stat_annotation
 
 # Data location
 file_gut_taxonomy="../downstream_data/taxo.csv"
-file_gut_msp_data="../downstream_data/gctDown10m.csv"
+file_gut_genenames="../downstream_data/IGC2.1990MSPs.tsv"
+file_gut_msp_data="../downstream_data/norm.csv"
 file_gut_names="../downstream_data/P15952_20_03_sample_info_stool.txt"
 file_sample_type="../downstream_data/PROFITplaceboTab.csv"
 file_antismash='../downstream_data/igc2.antismash.simple.txt'
@@ -17,7 +18,7 @@ file_hs='../downstream_data/hs_v2_sp.csv'
 
 # Load data
 sample_type = pd.read_csv(file_sample_type, index_col=0)
-
+gut_genenames = pd.read_csv(file_gut_genenames, index_col='gene_id', sep='\t')
 gut_taxonomy = pd.read_csv(file_gut_taxonomy, index_col=0)
 gut_msp_data = dd.read_csv(file_gut_msp_data)
 gut_names = pd.read_table(file_gut_names, index_col=0)
