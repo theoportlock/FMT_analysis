@@ -100,5 +100,5 @@ ax, test_results = add_stat_annotation(
 
 # Print
 plt.tight_layout()
-#plt.show()
-plt.savefig("results/species_richness.pdf")
+plt.show()
+#plt.savefig("results/species_richness.pdf")
