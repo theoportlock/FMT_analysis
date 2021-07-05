@@ -98,9 +98,7 @@ gut_patient_fmt_ax.set_ylabel('')
 plt.setp(gut_patient_placebo_ax.get_legend().get_texts(), fontsize = 8)
 plt.setp(gut_patient_placebo_ax.get_legend().get_title(), fontsize = 8)
 plt.tight_layout()
-#plt.savefig('secmetab.pdf')
-
+plt.savefig('card.jpg')
 #diff = patt3-fatt3
 #sns.heatmap(diff,yticklabels=True)
-
-plt.show()
+#plt.show()
