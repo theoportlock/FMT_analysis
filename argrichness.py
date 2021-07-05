@@ -10,7 +10,7 @@ from statannot import add_stat_annotation
 
 # Data location
 file_gut_taxonomy="../downstream_data/taxo.csv"
-file_gut_msp_data="../project/Downstream/norm.csv"
+file_gut_msp_data="../downstream_data/norm.csv"
 file_gut_names="../downstream_data/P15952_20_03_sample_info_stool.txt"
 file_sample_type="../downstream_data/PROFITplaceboTab.csv"
 file_card='../downstream_data/hs_10_4_igc2.CARD.tsv'
