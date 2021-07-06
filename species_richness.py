@@ -75,6 +75,25 @@ sns.stripplot(ax = gut_patient_ax, data=gut_patient_count_df, x=x, y=y, hue=hue,
 sns.boxplot(ax = oral_patient_ax, data=oral_patient_count_df, x=x, y=y, hue=hue, linewidth=1).set_title("oral")
 sns.stripplot(ax = oral_patient_ax, data=oral_patient_count_df, x=x, y=y, hue=hue, linewidth=1)
 
+#sns.catplot(data=gut_patient_count_df, x="Type", y=y, linewidth=1, kind='point')
+#sns.lineplot(data=gut_patient_count_df, x="Type", y=y, linewidth=1, estimator=None, units="Days after treatment")
+
+'''
+attempt at catplot
+IF pick up in the future then make sure that Site variable is used so that I can differentiate the categories
+
+sns.catplot(x=x,y=y,hue=hue,kind='boxplot',
+gutplot['Days after treatment'] = gutplot['Days after treatment'].astype(int)
+gutplot.loc[gutplot['Days after treatment'] > 90, "Days after treatment"] = 0
+
+gut_count_df= pd.DataFrame(gut_msp_data.agg(np.count_nonzero, axis=0)).reset_index()
+gut_count_df = gut_count_df.rename(columns={0:"Species richness"})
+gut_count_df["Days after treatment"] = gut_count_df["Days after treatment"].astype(int)
+gut_count_df.loc[gut_count_df['Days after treatment'] > 90, "Days after treatment"] = 0
+gut_count_df = gut_count_df.fillna('DONOR')
+sns.catplot(x=x,y=y,hue=hue,row='kind='boxplot',
+'''
+
 # Format Plot
 gut_patient_ax.legend([],[], frameon=False)
 gut_donor_ax.legend([],[], frameon=False)
