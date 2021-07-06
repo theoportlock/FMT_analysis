@@ -67,6 +67,15 @@ ffcor = fcor
 #        yticklabels=True,
 #        xticklabels=True)
 
+'''
+get pearson pval
+import pandas as pd
+import numpy as np
+from scipy.stats import pearsonr
+
+pval = numeric_data.corr(method=lambda x, y: pearsonr(x, y)[1]) - np.eye(len(cor.columns))
+'''
+
 sns.clustermap(
         ffcor,
                 cmap='coolwarm',
