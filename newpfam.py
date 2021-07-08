@@ -13,7 +13,7 @@ file_gut_taxonomy="../downstream_data/taxo.csv"
 file_gut_msp_data="../project/Downstream/norm.csv"
 file_gut_names="../downstream_data/P15952_20_03_sample_info_stool.txt"
 file_sample_type="../downstream_data/PROFITplaceboTab.csv"
-file_pfam='../downstream_data/pfamMat.csv'
+file_pfam='../downstream_data/igc2PfamDesc.csv'
 file_gene_info='../downstream_data/IGC2.1990MSPs.tsv'
 
 # Load data
@@ -22,7 +22,7 @@ sample_type = pd.read_csv(file_sample_type, index_col=0)
 gut_taxonomy = pd.read_csv(file_gut_taxonomy, index_col=0)
 gut_msp_data = dd.read_csv(file_gut_msp_data)
 gut_names = pd.read_table(file_gut_names, index_col=0)
-pfam = dd.read_csv(file_pfam)
+pfam = dd.read_csv(file_pfam, assume_missing=True)
 gene_info = dd.read_csv(file_gene_info, sep='\t')
 
 sample_type = sample_type.set_index(sample_type.index.str.replace("P01","P").str.replace("\ .*", "", regex=True))
@@ -34,12 +34,12 @@ gut_formatted_names.iloc[:,2] = gut_formatted_names.iloc[:,2].str.replace("Stool
 gut_formatted_names = pd.merge(gut_formatted_names, sample_type, left_on=0, right_on="Patient", how='left')
 
 replacedbygenename = gut_msp_data.merge(gene_info, how='inner', left_on='Unnamed: 0', right_on='gene_id')
-replacedbypfam = replacedbygenename.merge(pfam, how='inner', left_on='gene_name', right_on='igc2_id')
+replacedbypfam = replacedbygenename.merge(pfam, how='inner', left_on='gene_name', right_on='gene_name')
 del replacedbygenename
 
 fmtcols = [col for col in replacedbypfam.columns.values if 'FMT' in col]
-fmtcols.append('vf_id')
-sumofsm = replacedbypfam[fmtcols].groupby('vf_id').sum().compute()
+fmtcols.append('pfam_name')
+sumofsm = replacedbypfam[fmtcols].groupby('pfam_name').sum().compute()
 
 del replacedbypfam, gene_info, pfam
 
