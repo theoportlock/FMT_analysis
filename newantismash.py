@@ -22,6 +22,7 @@ sample_type = pd.read_csv(file_sample_type, index_col=0)
 gut_taxonomy = pd.read_csv(file_gut_taxonomy, index_col=0)
 gut_msp_data = dd.read_csv(file_gut_msp_data)
 gut_names = pd.read_table(file_gut_names, index_col=0)
+
 antismash = pd.read_table(file_antismash)
 antismash.columns = ['gene_name','sm','id']
 gene_info = dd.read_csv(file_gene_info, sep='\t')

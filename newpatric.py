@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-import gc
+#!/usr/bin/env python import gc
 import numpy as np
 import itertools
 import seaborn as sns
