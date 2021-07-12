@@ -20,6 +20,7 @@ file_antismash='../downstream_data/igc2.antismash.simple.txt'
 file_pfam='../downstream_data/igc2PfamDesc.csv'
 file_patric='../downstream_data/patricmap.csv'
 file_card='../downstream_data/hs_10_4_igc2.CARD.tsv'
+file_cazyme='../downstream_data/hs_10_4_igc2_vs_cazy.tsv'
 
 # Load data
 gene_info = dd.read_csv(file_gene_info, sep='\t')
@@ -94,6 +95,18 @@ sumofsm = replacedbycard[fmtcols].groupby('Best_Hit_ARO').sum()
 del replacedbycard, card
 gc.collect()
 sumofsm.to_csv("cardNorm.csv",  single_file=True)
+del sumofsm
+
+
+## CAzyme
+cazyme = pd.read_csv(file_cazyme, sep='\t')
+replacedbycazyme = gut_msp_data.merge(cazyme, how='inner', left_on='Unnamed: 0', right_on='gene_id')
+fmtcols = [col for col in replacedbycazyme.columns.values if 'FMT' in col]
+fmtcols.append('CAZyme')
+sumofsm = replacedbycazyme[fmtcols].groupby('CAZyme').sum()
+del replacedbycazyme, cazyme
+gc.collect()
+sumofsm.to_csv("cazymeNorm.csv",  single_file=True)
 del sumofsm
 
 client.close()
