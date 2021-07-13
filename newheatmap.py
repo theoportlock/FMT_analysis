@@ -23,7 +23,7 @@ day0=pd.read_csv(file_day0)
 day7=pd.read_csv(file_day7)
 day30=pd.read_csv(file_day30)
 day90=pd.read_csv(file_day90)
-siafile = pd.read_excel(file_siafile)
+siafile = pd.read_excel(file_siafile, engine='openpyxl')
 
 # add multi-index to data
 sample_type = sample_type.set_index(sample_type.index.str.replace("P01","P").str.replace("\ .*", "", regex=True))
@@ -49,7 +49,7 @@ merged_metadata = pd.merge(siafile, vals,  how='inner', left_on=['id','time_poin
 #numeric_data = merged_metadata.select_dtypes(include=np.number)
 fmerged_metadata = merged_metadata.drop(["Age at enrolment","MELD_y","Days after treatment"],axis=1)
 ffmerged_metadata = fmerged_metadata.T[fmerged_metadata.isna().sum(axis=0) < 5].T
-fgut_msp_data = gut_msp_data.T.reset_index()
+fgut_msp_data = data.set_index("index").T.reset_index()
 fgut_msp_data["Days after treatment"] = fgut_msp_data["Days after treatment"].astype(int)
 #normalized_df=(numeric_data-numeric_data.min())/(numeric_data.max()-numeric_data.min())
 merged_MSP_metadata = pd.merge(fgut_msp_data, ffmerged_metadata, left_on=['Patient','Days after treatment'], right_on=['id','time_point'])
@@ -68,12 +68,14 @@ ffcor = fcor
 #        xticklabels=True)
 
 '''
-get pearson pval
+#get pearson pval
 import pandas as pd
 import numpy as np
-from scipy.stats import pearsonr
+from scipy.stats import spearmanr
 
 pval = numeric_data.corr(method=lambda x, y: pearsonr(x, y)[1]) - np.eye(len(cor.columns))
+fcor = pval.loc[pval.columns.str.contains('msp'),~pval.columns.str.contains('msp')]
+'''
 '''
 
 sns.clustermap(
@@ -81,3 +83,58 @@ sns.clustermap(
                 cmap='coolwarm',
                         yticklabels=False,
                                 xticklabels=True)
+'''
+
+
+'''
+# some other dudes code
+
+from scipy.stats import spearmanr
+from statsmodels.stats.multitest import multipletests
+
+def get_correlations(df):
+    df = df.dropna()._get_numeric_data()
+    dfcols = pd.DataFrame(columns=df.columns)
+    pvalues = dfcols.transpose().join(dfcols, how="outer")
+    correlations = dfcols.transpose().join(dfcols, how="outer")
+    for ix, r in enumerate(df.columns):
+        for jx, c in enumerate(df.columns):
+            sp = spearmanr(df[r], df[c])
+            correlations[c][r] = sp[0]
+            pvalues[c][r] = sp[1] if ix > jx else np.nan  # Only store values below the diagonal
+    return correlations.astype("float"), pvalues.astype("float")
+
+
+correlations, uncorrected_p_values = get_correlations(iris_df)
+
+# Correct p-values for multiple testing and check significance (True if the corrected p-value < 0.05)
+shape = uncorrected_p_values.values.shape
+significant_matrix = multipletests(uncorrected_p_values.values.flatten())[0].reshape(shape)
+
+fcor = cor.loc[cor.columns.str.contains('msp'),~cor.columns.str.contains('msp')]
+
+# Here we start plotting
+g = sns.clustermap(correlations, cmap="vlag", vmin=-1, vmax=1)
+
+# Here labels on the y-axis are rotated
+for tick in g.ax_heatmap.get_yticklabels():
+tick.set_rotation(0)
+
+# Here we add asterisks onto cells with signficant correlations
+for i, ix in enumerate(g.dendrogram_row.reordered_ind):
+    for j, jx in enumerate(g.dendrogram_row.reordered_ind):
+        if i != j:
+            text = g.ax_heatmap.text(
+                j + 0.5,
+                i + 0.5,
+                "*" if significant_matrix[ix, jx] or significant_matrix[jx, ix] else "",
+                ha="center",
+                va="center",
+                color="black",
+            )
+            text.set_fontsize(20)
+
+# Save a high-res copy of the image to disk
+plt.tight_layout()
+plt.savefig("clustermap.png", dpi=200)
+'''
