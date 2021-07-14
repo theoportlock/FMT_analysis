@@ -59,11 +59,35 @@ cor = numeric_data.corr(method='spearman')
 fcor = cor.loc[cor.columns.str.contains('msp'),~cor.columns.str.contains('msp')]
 fcor.dropna(axis=0,inplace = True)
 ffcor = fcor
+#ffcor = fcor[(fcor.min(axis=1) < -0.5) | (fcor.max(axis=1) > 0.5)]
 
-file_gut_taxonomy="../downstream_data/taxo.csv"
-file_gut_msp_data="../downstream_data/merged.final.mgs.med.vec.10M.csv"
-file_gut_names="../downstream_data/P15952_20_03_sample_info_stool.txt"
-file_sample_type="../downstream_data/PROFITplaceboTab.csv"
+#sns.heatmap(
+#        ffcor,
+#        cmap='coolwarm',
+#        yticklabels=True,
+#        xticklabels=True)
+
+'''
+#get pearson pval
+import pandas as pd
+import numpy as np
+from scipy.stats import spearmanr
+
+pcor = numeric_data.corr(method=lambda x, y: spearmanr(x, y)[1]) - np.eye(len(cor.columns))
+fcor = numeric_data.corr(method=lambda x, y: spearmanr(x, y)[0]) - np.eye(len(cor.columns))
+
+fcor = pval.loc[pval.columns.str.contains('msp'),~pval.columns.str.contains('msp')]
+'''
+'''
+
+sns.clustermap(
+        ffcor,
+                cmap='coolwarm',
+                        yticklabels=False,
+                                xticklabels=True)
+'''
+
+
 '''
 # some other dudes code
 
@@ -96,6 +120,7 @@ correlations = correlations.loc[correlations.columns.str.contains('msp'),~correl
 significant_matrix.dropna(axis=0,inplace = True)
 correlations.dropna(axis=0,inplace = True)
 significant_matrix = significant_matrix.to_numpy()
+
 #theoeditend
 
 
