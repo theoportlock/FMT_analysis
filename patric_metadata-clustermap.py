@@ -12,9 +12,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import spearmanr
 from statsmodels.stats.multitest import multipletests
+import dask.dataframe as dd
 
 samples_metadata = pd.read_csv('metadata.csv', index_col=0).dropna()._get_numeric_data()
-samples_patric = pd.read_csv("patricNorm.csv", index_col=0).T
+#samples_patric = pd.read_csv("patricNorm.csv", index_col=0).T
+samples_patric = dd.read_csv("patricNorm.csv")
 
 # Join patric information
 samples_patricMetadata = samples_patric.join(samples_metadata, how='inner')
