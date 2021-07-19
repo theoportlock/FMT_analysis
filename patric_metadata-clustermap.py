@@ -12,17 +12,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import spearmanr
 from statsmodels.stats.multitest import multipletests
-import dask.dataframe as dd
 
-samples_metadata = pd.read_csv('metadata.csv', index_col=0).dropna()._get_numeric_data()
-#samples_patric = pd.read_csv("patricNorm.csv", index_col=0).T
-samples_patric = dd.read_csv("patricNorm.csv")
+samples_metadata = pd.read_csv('metadata.csv', index_col=0).dropna()._get_numeric_data().astype('float16')
+samples_patric = pd.read_csv("patricNorm.csv", index_col=0).T.astype('float16')
 
 # Join patric information
-samples_patricMetadata = samples_patric.join(samples_metadata, how='inner')
+#samples_patricMetadata = samples_patric.join(samples_metadata, how='inner')
 
 # Calculate and format correlations
-correlationArray, uncorrectedPValueArray = spearmanr(samples_patricMetadata)
+correlationArray, uncorrectedPValueArray = spearmanr(
+    samples_patric[samples_patric.index.isin(samples_metadata.index)],
+    samples_metadata[samples_metadata.index.isin(samples_patric.index)])
+#correlationArray, uncorrectedPValueArray = spearmanr(samples_patricMetadata)
 correlations = pd.DataFrame(
     correlationArray,
     index=samples_patricMetadata.columns,
