@@ -18,7 +18,7 @@ msp_taxonomy = pd.read_csv("../downstream_data/taxo.csv", index_col=0)
 msp_samples = pd.read_csv("../downstream_data/merged.final.mgs.med.vec.10M.csv", index_col=0)
 
 # Join taxo information
-taxaType='order'
+taxaType='species'
 taxonomy_samples = msp_samples.join(msp_taxonomy[taxaType], how='inner').groupby(taxaType).sum()
 samples_taxonomy = taxonomy_samples.T
 samples_taxonomyMetadata = samples_taxonomy.join(samples_metadata, how='inner').astype('float')
@@ -52,8 +52,8 @@ significantMatrix = pd.DataFrame(
 
 # Plot
 g = sns.clustermap(
-    filteredSlicedCorrelations,
-    #filteredSlicedCorrelations.loc[significantMatrix.any(axis=1),:],
+    #filteredSlicedCorrelations,
+    filteredSlicedCorrelations.loc[significantMatrix.any(axis=1),:],
     cmap="vlag",
     vmin=-1,
     vmax=1, 
@@ -68,14 +68,15 @@ for i, ix in enumerate(g.dendrogram_row.reordered_ind):
         text = g.ax_heatmap.text(
             j + 0.5,
             i + 0.5,
-            "*" if significantMatrix.values[ix, jx] else "",
-            #"*" if significantMatrix.loc[significantMatrix.any(axis=1),:].values[ix, jx] else "",
+            #"*" if significantMatrix.values[ix, jx] else "",
+            "*" if significantMatrix.loc[significantMatrix.any(axis=1),:].values[ix, jx] else "",
             ha="center",
             va="center",
             color="black",
         )
         text.set_fontsize(8)
 
-#plt.show()
+plt.show()
 #plt.tight_layout()
+#g.ax_heatmap.tick_params(axis='both', labelsize=8)
 plt.savefig("results/" + taxaType + "_metaclustermap.pdf")
