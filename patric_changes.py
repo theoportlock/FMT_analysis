@@ -28,7 +28,12 @@ difference = averageDays.div(baseline.mean())
 difference = difference.loc[(difference.sum(axis=1) != 0), (difference.sum(axis=0) != 0)]
 difference = difference.loc[(difference.sum(axis=1) != 1), (difference.sum(axis=0) != 1)]
 
-stats = samples_patricMetadata.groupby('Days after treatment').apply(lambda group: mannwhitneyu(baseline, group))
+stats = samples_patricMetadata.groupby('Days after treatment').apply(lambda group: mannwhitneyu(baseline, group)[1])
+statsdf = pd.DataFrame(stats.to_list(), columns=samples_patricMetadata.columns, index=averageDays.index).drop(['Days after treatment'], axis=1)
+statsdf.loc[:, (statsdf < 0.05).any(axis=0)]
+
+
+
 
 # Plot
 g = sns.clustermap(
