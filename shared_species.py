@@ -5,44 +5,24 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Data location
-file_gut_taxonomy="../downstream_data/taxo.csv"
-file_oral_taxonomy="../oral_downstream_data/oraltaxo.csv"
-file_gut_msp_data="../downstream_data/merged.final.mgs.med.vec.10M.csv"
-file_oral_msp_data="../oral_merged_downstream_data/merged.final.mgs.med.vec.10M.csv"
-file_gut_names="../downstream_data/P15952_20_03_sample_info_stool.txt"
-file_oral_names="../oral_downstream_data/A.Mardinoglu_20_05_sample_info.txt"
-file_sample_type="../downstream_data/PROFITplaceboTab.csv"
+samples_metadata = pd.read_csv('metadata.csv', index_col=0)
+gmsp_samples = pd.read_csv("../downstream_data/merged.final.mgs.med.vec.10M.csv", index_col=0)
+omsp_samples = pd.read_csv("../oral_merged_downstream_data/oralmsps.csv", index_col=0)
+gmsp_gtaxonomy = pd.read_csv("../downstream_data/taxo.csv", index_col=0)
+omsp_otaxonomy = pd.read_csv("../oral_downstream_data/oraltaxo.csv", index_col=0)
 
-# Load data
-sample_type = pd.read_csv(file_sample_type, index_col=0)
-gut_taxonomy = pd.read_csv(file_gut_taxonomy, index_col=0)
-gut_msp_data = pd.read_csv(file_gut_msp_data, index_col=0)
-gut_names = pd.read_table(file_gut_names, index_col=0)
-oral_taxonomy = pd.read_csv(file_oral_taxonomy, index_col=0)
-oral_msp_data = pd.read_csv(file_oral_msp_data, index_col=0)
-oral_names = pd.read_table(file_oral_names, index_col=0)
-sample_type = sample_type.set_index(sample_type.index.str.replace("P01","P").str.replace("\ .*", "", regex=True))
+taxaType='species'
+gtaxonomy_samples = gmsp_samples.join(gmsp_gtaxonomy[taxaType], how='inner').groupby(taxaType).sum()
+samples_gtaxonomy = gtaxonomy_samples.T
+samples_taxonomyMetadata = samples_gtaxonomy.join(samples_metadata, how='inner')
+
+samples_gutsum['Site'] = 'Gut'
+samples_oralsum['Site'] = 'Oral'
+joined = pd.concat([samples_gutsum, samples_oralsum]).reset_index()
+
+#stopped here
 
 # Format data
-taxa_type='species'
-
-gut_names["User ID"] = gut_names["User ID"].str.replace("Baseline", "Day 0")
-gut_formatted_names = gut_names['User ID'].str.split(expand=True)
-gut_formatted_names.loc[gut_formatted_names[0]=="Donor", 2] = gut_formatted_names.loc[gut_formatted_names[0]=="Donor", 1]
-gut_formatted_names.iloc[:,2] = gut_formatted_names.iloc[:,2].str.replace("Stool","0")
-gut_formatted_names = pd.merge(gut_formatted_names, sample_type, left_on=0, right_on="Patient", how='left')
-gut_msp_data.columns = pd.MultiIndex.from_frame(
-        gut_formatted_names[[0,2,'Type']],
-        names=['Patient','Days after treatment', 'Type'])
-
-oral_names["User ID"] = oral_names["User ID"].str.replace("Baseline", "Day 0")
-oral_formatted_names = oral_names['User ID'].str.split(expand=True)
-oral_formatted_names.loc[oral_formatted_names[0]=="Donor", 2] = oral_formatted_names.loc[oral_formatted_names[0]=="Donor", 1]
-oral_formatted_names.iloc[:,2] = oral_formatted_names.iloc[:,2].str.replace("Stool","0")
-oral_formatted_names = pd.merge(oral_formatted_names, sample_type, left_on=0, right_on="Patient", how='left')
-oral_msp_data.columns = pd.MultiIndex.from_frame(
-        oral_formatted_names[[0,2,'Type']],
-        names=['Patient','Days after treatment', 'Type'])
 
 # plot
 #fig, (gut_donor_ax, gut_patient_fmt_ax, gut_patient_placebo_ax, oral_patient_fmt_ax, oral_patient_placebo_ax) = plt.subplots(1, 5, sharey=True, gridspec_kw={'width_ratios': [1, 4, 4, 4, 4]})
