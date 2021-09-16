@@ -8,19 +8,32 @@ import matplotlib.pyplot as plt
 import math
 from bioinfokit import analys, visuz
 from scipy.stats import wilcoxon as wc
+ 
+pd.set_option('use_inf_as_na', True)
 
-df = pickle.load(open("../downstream/Func.pickle",'rb'))
-df2 = df.reset_index().copy()
+samples_metadata = pd.read_csv('metadata.csv', index_col=0).dropna()
+samples_patric = pd.read_csv("patricNorm.csv", index_col=0).T
+df = samples_patric.join(samples_metadata[["Days after treatment", "Type"]], how='inner')
 
-df3 = df2.drop("ID",axis="columns")
-df3.set_index(['Patient','Days after treatment', 'Type'], inplace=True)
+#df = pickle.load(open("../downstream/Func.pickle",'rb'))
+#df2 = df.reset_index().copy()
 
-df3.drop(["P0017","P0023","P0029"], inplace=True)
+#df3 = df2.drop("ID",axis="columns")
+#df3.set_index(['Patient','Days after treatment', 'Type'], inplace=True)
+
+#df3.drop(["P0017","P0023","P0029"], inplace=True)
     
-df3 = df3[df3.columns[df3.sum()>0.001]].copy()
-day=90
+#df3 = df3[df3.columns[df3.sum()>0.001]].copy()
+day=7
+Fd7='`Days after treatment` == @day and Type == "FMT"'
+Fd0='`Days after treatment` == 0 and Type == "FMT"'
+df.query(Fd0)
+df.query(Fd0).apply(np.log)
 
+logdif = df.query(Fd0).apply(np.log) - df.query(Fd0).apply(np.log)
 logdif = df3.xs([0,'FMT'],axis='index',level=[1,2]).apply(np.log) - df3.xs([day,'FMT'],axis='index',level=[1,2]).apply(np.log)
+
+(df.xs([0,'FMT']).apply(np.log).mean() - df.xs([7,'FMT']).apply(np.log).mean()).dropna()
 
 comb = pd.DataFrame()
 comb['logFC'] = logdif.mean()

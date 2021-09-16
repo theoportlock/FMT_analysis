@@ -23,7 +23,8 @@ day0=pd.read_csv(file_day0)
 day7=pd.read_csv(file_day7)
 day30=pd.read_csv(file_day30)
 day90=pd.read_csv(file_day90)
-siafile = pd.read_excel(file_siafile)
+siafile = pd.read_excel(file_siafile, engine = 'openpyxl')
+othermeta = pd.read_csv('../downstream_data/Donorandpatientbaselinecharacteristics.tsv', sep='\t')
 
 # add multi-index to data
 sample_type = sample_type.set_index(sample_type.index.str.replace("P01","P").str.replace("\ .*", "", regex=True))
@@ -130,3 +131,18 @@ nx.draw(mst, with_labels=True, pos=nx.fruchterman_reingold_layout(mst),
 #set title
 plt.title("Asset price correlations - Minimum Spanning Tree",fontdict=font_dict)
 plt.show()
+
+
+
+'''
+formatted_names[2] = formatted_names[2].astype(int)
+newmetadata = pd.merge(merged_metadata, formatted_names, left_on=['id', 'time_point'], right_on=[0,2], how='outer')
+othermeta = pd.read_csv('../downstream_data/Donorandpatientbaselinecharacteristics.tsv', sep='\t')
+othermeta['ID'] = othermeta.ID.str.replace('P01','P')
+othermeta['ID'] = othermeta.ID.str.replace(' .*','')
+othermeta['ID'] = othermeta.ID.str.replace('B','').str.replace('A','').str.replace('C','')
+othermeta['ID'] = othermeta.ID.str.replace('D','')
+othermeta = othermeta.groupby('ID').first().reset_index()
+mmdata = pd.merge(newmetadata, othermeta, left_on=['id'], right_on=['ID'], how='outer')
+mmdata.to_csv('newmergedmetadata.csv')
+'''

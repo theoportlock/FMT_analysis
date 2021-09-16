@@ -34,7 +34,7 @@ DM_dist = skbio.stats.distance.DistanceMatrix(Ar_dist)
 PCoA = skbio.stats.ordination.pcoa(DM_dist)
 addedsamples = PCoA.samples.copy()
 addedsamples.set_index(samples_taxonomy.index,inplace=True)
-#gut_merged_metadata = addedsamples.join(samples_metadata)
+gut_merged_metadata = addedsamples.join(samples_metadata)
 #sns.scatterplot(data=gut_merged_metadata, x='PC1', y='PC2', hue='Aetiology', palette='colorblind')
 #sns.scatterplot(data=gut_merged_metadata, x='PC1', y='PC2', hue='MELD', palette='coolwarm')
 
@@ -42,7 +42,23 @@ addedsamples.set_index(samples_taxonomy.index,inplace=True)
 #plt.show()
 #plt.tight_layout()
 #plt.savefig("results/patric_metadata-clustermap.pdf")
+'''
+import plotly.express as px
+merged_metadata = addedsamples.join(samples_metadata)
 
+fig = px.scatter(
+        merged_metadata.sort_values("Days after treatment"),
+        x='PC1',
+        y='PC2',
+        color='Type',
+        #size=80,
+        #symbol='Aetiology',
+        animation_frame='Days after treatment',
+        #animation_group='Days after treatment',
+        )
+fig.show()
+
+        
 
 # elbow
 Nc = range(1, 20)

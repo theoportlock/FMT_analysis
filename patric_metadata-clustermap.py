@@ -4,7 +4,7 @@
 Plotting an annotated seaborn correlation heatmap between MSP data and metadata
 Theo Portlock
 '''
-%autoindent
+#%autoindent
 
 import seaborn as sns
 import pandas as pd
@@ -17,7 +17,7 @@ samples_metadata = pd.read_csv('metadata.csv', index_col=0).dropna()._get_numeri
 samples_patric = pd.read_csv("patricNorm.csv", index_col=0).T.astype('float16')
 
 # Join patric information
-#samples_patricMetadata = samples_patric.join(samples_metadata, how='inner')
+samples_patricMetadata = samples_patric.join(samples_metadata, how='inner')
 
 def get_correlations(df):
     df = df.dropna()._get_numeric_data()
@@ -94,6 +94,6 @@ for i, ix in enumerate(g.dendrogram_row.reordered_ind):
         )
         text.set_fontsize(8)
 
-#plt.show()
+plt.show()
 #plt.tight_layout()
-plt.savefig("results/patric_metadata-clustermap.pdf")
+#plt.savefig("results/patric_metadata-clustermap.pdf")

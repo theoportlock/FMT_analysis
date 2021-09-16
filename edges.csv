@@ -1,0 +1,200 @@
+,source,target,0
+0,gut Acinetobacter,oral Alloscardovia,0.5240970699446348
+1,gut Acinetobacter,oral Caviibacter,0.42437084135257497
+2,gut Acinetobacter,oral Acidiphilium,0.5857375751052541
+3,gut Allisonella,oral Carnobacterium,0.41394233146756737
+4,gut Allisonella,oral Trueperella,0.4760738772954497
+5,gut Allisonella,oral Xylanimonas,0.43141820923975666
+6,gut Allisonella,oral unclassified Actinomycetaceae,0.39875441663629485
+7,gut Allisonella,oral unclassified Neisseriaceae,0.462670096926477
+8,gut Anaeromassilibacillus,oral Abiotrophia,0.39965477436484115
+9,gut Anaeromassilibacillus,oral Desulfomicrobium,0.4164312679168454
+10,gut Azospirillum,oral Caviibacter,0.47234244403323017
+11,gut Azospirillum,oral Acetobacter,0.9978938130759107
+12,gut Bacteroides,oral Campylobacter,0.47161358248461027
+13,gut Bacteroides,oral Prevotella,0.4529308853729877
+14,gut Bacteroides,oral Veillonella,0.46211591020487774
+15,gut Bacteroides,oral unclassified Actinomycetaceae,-0.39965894132106294
+16,gut Bacteroides,oral unclassified Neisseriaceae,-0.4707048437050684
+17,gut Barnesiella,oral Alloprevotella,0.4015328450871219
+18,gut Barnesiella,oral Acetobacter,0.42649936680449096
+19,gut Bifidobacterium,oral Catonella,0.49421045297592525
+20,gut Bifidobacterium,oral Isoptericola,0.42699820105612374
+21,gut Bifidobacterium,oral unclassified Atopobiaceae,-0.4832669608227255
+22,gut Bilophila,oral Campylobacter,0.47193825150308016
+23,gut Bilophila,oral Selenomonas,0.47215867435063574
+24,gut Butyricicoccus,oral Desulfobulbus,0.4661814365864781
+25,gut Butyricicoccus,oral Lactobacillus,0.42518813291341684
+26,gut Butyricicoccus,oral Parascardovia,0.4275116077813329
+27,gut Butyricimonas,oral Bradyrhizobium,0.3996930403023344
+28,gut Butyricimonas,oral Desulfomicrobium,0.41683608291877294
+29,gut Catenibacterium,oral Bacteroides,0.418814415895005
+30,gut Catenibacterium,oral Desulfobulbus,0.4015020181577558
+31,gut Catenibacterium,oral Desulfomicrobium,0.40397544904406396
+32,gut Catenibacterium,oral Fretibacterium,0.44964718396239334
+33,gut Catenibacterium,oral Sanguibacter,0.4194909922055076
+34,gut Catenibacterium,oral unclassified Bacteroidetes,0.4397866628806343
+35,gut Catenibacterium,oral unclassified Synergistaceae,0.5136253446318867
+36,gut Catenibacterium,oral unclassified Synergistales,0.4992421447527659
+37,gut Cloacibacillus,oral Actinobaculum,0.40805158358280025
+38,gut Cloacibacillus,oral Chlamydia,0.48940744570418016
+39,gut Cloacibacillus,oral Peptoanaerobacter,0.5622970445266212
+40,gut Cloacibacillus,oral unclassified Actinomycetaceae,0.50345361822994
+41,gut Cloacibacillus,oral unclassified Bacteroidales,0.48419305320783185
+42,gut Cloacibacillus,oral unclassified Candidatus Gracilibacteria,0.5117600723764607
+43,gut Clostridium,oral unclassified Firmicutes,0.41794281886405993
+44,gut Collinsella,oral unclassified Selenomonadaceae,-0.40188738467464513
+45,gut Collinsella,oral Acidaminococcus,0.4178869226928355
+46,gut Coprobacter,oral Megasphaera,0.5142246945542926
+47,gut Coprobacter,oral Stomatobaculum,0.48448823718158746
+48,gut Coprobacter,oral Trueperella,0.5654539650391001
+49,gut Cryptobacterium,oral Centipeda,0.42510444374984874
+50,gut Cryptobacterium,oral Colibacter,0.40984046403383706
+51,gut Cryptobacterium,oral Desulfovibrio,0.5323880241282748
+52,gut Cryptobacterium,oral Johnsonella,0.43339090872983327
+53,gut Cryptobacterium,oral Phocaeicola,0.40741352380982865
+54,gut Cryptobacterium,oral Treponema,0.4733730372924165
+55,gut Cryptobacterium,oral Acidaminococcus,0.4449944558879127
+56,gut Dakarella,oral Desulfomicrobium,0.4088811874357369
+57,gut Dakarella,oral Mycoplasma,0.4049508573587304
+58,gut Dakarella,oral Acidiphilium,0.7122123116119198
+59,gut Desulfovibrio,oral Solobacterium,-0.3990815085361019
+60,gut Dorea,oral unclassified Actinomycetaceae,0.4323097726344714
+61,gut Drancourtella,oral Mycoplasma,0.4043531439161345
+62,gut Duodenibacillus,oral Catonella,0.48163139616123896
+63,gut Enterococcus,oral Alloprevotella,-0.4225773712702713
+64,gut Escherichia,oral Actinobaculum,0.4795168828423128
+65,gut Escherichia,oral Cardiobacterium,0.5401713029249262
+66,gut Escherichia,oral Eikenella,0.4783064604065688
+67,gut Escherichia,oral Gemella,0.4048882613626473
+68,gut Escherichia,oral Granulicatella,0.4049838168825738
+69,gut Escherichia,oral Neisseria,0.41277675863540697
+70,gut Escherichia,oral unclassified Atopobiaceae,-0.4176757634052843
+71,gut Eubacterium,oral Cardiobacterium,-0.443548792768242
+72,gut Eubacterium,oral Haemophilus,-0.490584531104668
+73,gut Eubacterium,oral Peptostreptococcus,-0.39855274817729386
+74,gut Eubacterium,oral Pseudopropionibacterium,-0.4108457676431995
+75,gut Eubacterium,oral Acetobacter,0.4015600068075615
+76,gut Faecalicoccus,oral Chlamydia,0.5380803727335276
+77,gut Faecalicoccus,oral Peptoanaerobacter,0.4440097908220427
+78,gut Faecalicoccus,oral unclassified Candidatus Gracilibacteria,0.5766698954643663
+79,gut Faecalicoccus,oral unclassified Neisseriaceae,0.4152455255327699
+80,gut Faecalitalea,oral unclassified Actinomycetaceae,0.49377756257601085
+81,gut Faecalitalea,oral unclassified Neisseriaceae,0.6014888628175845
+82,gut Flavonifractor,oral unclassified Prevotellaceae,0.39926123663478463
+83,gut Fusicatenibacter,oral Haemophilus,-0.4043220780914264
+84,gut Fusicatenibacter,oral Pseudoramibacter,0.4510149522192091
+85,gut Fusicatenibacter,oral Acidaminococcus,0.43700598703716154
+86,gut Fusobacterium,oral Klebsiella,0.4336762797059014
+87,gut Fusobacterium,oral unclassified Peptostreptococcaceae,0.4069885086470767
+88,gut Gemella,oral unclassified Propionibacteriales,0.5687596743775656
+89,gut Gemmiger,oral Acetobacter,0.40352612903724744
+90,gut Gordonibacter,oral Carnobacterium,0.4066340961673623
+91,gut Gordonibacter,oral Filifactor,0.3998726735103609
+92,gut Holdemanella,oral Johnsonella,0.5546556506872904
+93,gut Klebsiella,oral Bradyrhizobium,0.48562726754910757
+94,gut Lachnospira,oral Parascardovia,0.5049467449776996
+95,gut Lachnospira,oral Pseudoramibacter,0.4272004295433815
+96,gut Lachnospira,oral unclassified Atopobiaceae,0.45088049676232594
+97,gut Libanicoccus,oral Centipeda,0.4667470701070164
+98,gut Libanicoccus,oral Sanguibacter,0.6668085895667478
+99,gut Libanicoccus,oral unclassified Actinomycetaceae,0.6206500745342658
+100,gut Libanicoccus,oral unclassified Neisseriaceae,0.454974951899351
+101,gut Marvinbryantia,oral unclassified Atopobiaceae,0.4026002581689719
+102,gut Mediterranea,oral Chlamydia,0.6915684764927337
+103,gut Mediterranea,oral unclassified Candidatus Gracilibacteria,0.48134001490534684
+104,gut Megamonas,oral Desulfovibrio,0.45697539118587416
+105,gut Megamonas,oral Johnsonella,0.47723268688141407
+106,gut Megamonas,oral unclassified Clostridiales,0.490489975126841
+107,gut Megamonas,oral unclassified Prevotellaceae,0.4093789688477454
+108,gut Megamonas,oral Acidaminococcus,0.5295384394962367
+109,gut Megasphaera,oral Granulicatella,0.41595324135598116
+110,gut Megasphaera,oral Ottowia,0.41042323874975234
+111,gut Merdimonas,oral Johnsonella,0.39829290567905806
+112,gut Merdimonas,oral Propionibacterium,-0.4004537848462053
+113,gut Methanosphaera,oral Bifidobacterium,0.3987819259530738
+114,gut Methanosphaera,oral Lactobacillus,0.453808127127775
+115,gut Methanosphaera,oral Scardovia,0.43861803268255184
+116,gut Mitsuokella,oral Sanguibacter,0.5704044685253793
+117,gut Mitsuokella,oral unclassified Actinomycetaceae,0.5295538848831839
+118,gut Negativibacillus,oral unclassified Atopobiaceae,0.40279165358526325
+119,gut Odoribacter,oral Peptostreptococcus,-0.46957431980842074
+120,gut Odoribacter,oral Veillonella,0.40106053586097834
+121,gut Olsenella,oral Desulfomicrobium,0.4289329824187996
+122,gut Olsenella,oral Johnsonella,0.4631561811178234
+123,gut Olsenella,oral Sanguibacter,0.5539593386500492
+124,gut Olsenella,oral unclassified Actinomycetaceae,0.4552602543758907
+125,gut Olsenella,oral unclassified Neisseriaceae,0.402928461327606
+126,gut Olsenella,oral unclassified Synergistaceae,0.4269701305507887
+127,gut Paraprevotella,oral Alloscardovia,0.40045555396189897
+128,gut Paraprevotella,oral Desulfobulbus,0.4851611186788391
+129,gut Paraprevotella,oral Desulfomicrobium,0.4980630779211375
+130,gut Paraprevotella,oral Filifactor,0.5845181781291187
+131,gut Paraprevotella,oral Parvimonas,0.4782490412302735
+132,gut Paraprevotella,oral Tannerella,0.47308803110751824
+133,gut Paraprevotella,oral unclassified Clostridiales Family XIII. Incertae Sedis,0.5370362380236012
+134,gut Paraprevotella,oral unclassified Synergistaceae,0.6050446581463942
+135,gut Paraprevotella,oral unclassified Synergistales,0.43184395229308586
+136,gut Parasutterella,oral Alloscardovia,0.5545461825454162
+137,gut Parasutterella,oral Caviibacter,0.48331776820690503
+138,gut Parasutterella,oral Desulfobulbus,0.4189570513340778
+139,gut Parasutterella,oral Phocaeicola,0.4107415962009905
+140,gut Parasutterella,oral Pseudoramibacter,0.44977916008962726
+141,gut Parasutterella,oral Acetobacter,0.5864853005704258
+142,gut Parasutterella,oral Acidiphilium,0.4603640507647261
+143,gut Phascolarctobacterium,oral Peptostreptococcus,-0.47553081836834454
+144,gut Prevotella,oral unclassified Neisseriaceae,0.43231039042838015
+145,gut Prevotellamassilia,oral Sanguibacter,0.4541842942126647
+146,gut Prevotellamassilia,oral unclassified Actinomycetaceae,0.4182620679559788
+147,gut Proteus,oral Enterobacter,0.7122123116119198
+148,gut Proteus,oral Pseudomonas,1.0
+149,gut Raoultella,oral Acidiphilium,1.0
+150,gut Romboutsia,oral unclassified Candidatus Gracilibacteria,0.4123244822468432
+151,gut Romboutsia,oral unclassified Selenomonadaceae,-0.4640692985260726
+152,gut Roseburia,oral Parascardovia,0.4994340124290949
+153,gut Roseburia,oral unclassified Atopobiaceae,0.4150279965386284
+154,gut Ruminiclostridium,oral unclassified Clostridiales,-0.47622425701704363
+155,gut Ruminococcus,oral Cardiobacterium,-0.4417407141572509
+156,gut Ruminococcus,oral Lactobacillus,0.4786779783956673
+157,gut Ruminococcus,oral unclassified Atopobiaceae,0.4223561223401386
+158,gut Sellimonas,oral Peptostreptococcus,0.41766175260578375
+159,gut Senegalimassilia,oral Cardiobacterium,-0.428086839512713
+160,gut Senegalimassilia,oral Cutibacterium,0.4668752541178534
+161,gut Senegalimassilia,oral Fusobacterium,-0.40727625630028047
+162,gut Senegalimassilia,oral Veillonella,0.4456913728986573
+163,gut Senegalimassilia,oral Acetobacter,0.5031949797898385
+164,gut Slackia,oral Candida,0.42861995907362627
+165,gut Streptococcus,oral Bradyrhizobium,0.3991273631752059
+166,gut Subdoligranulum,oral unclassified Propionibacteriales,0.49615047690243447
+167,gut Succinatimonas,oral Sanguibacter,0.5710727807322046
+168,gut Succinatimonas,oral unclassified Actinomycetaceae,0.7079932441055344
+169,gut Succinatimonas,oral unclassified Neisseriaceae,0.49846310699611274
+170,gut Turicibacter,oral unclassified Actinomycetaceae,0.5003492065596326
+171,gut unclassified Actinobacteria,oral Acetobacter,0.6268355503274632
+172,gut unclassified Bacteria,oral Anaeroglobus,0.5345811940233685
+173,gut unclassified Bacteria,oral Carnobacterium,-0.4157371292033801
+174,gut unclassified Bacteria,oral Gemella,-0.42612082583961125
+175,gut unclassified Bacteria,oral Haemophilus,-0.4448699824919915
+176,gut unclassified Bacteria,oral Mycoplasma,0.6651535043008915
+177,gut unclassified Bacteria,oral Olsenella,0.4890345213526406
+178,gut unclassified Bacteria,oral Peptoniphilus,0.43256849046000284
+179,gut unclassified Bacteria,oral Slackia,0.4799987853547658
+180,gut unclassified Bacteroidales,oral Bradyrhizobium,0.41111038871929906
+181,gut unclassified Burkholderiales,oral Isoptericola,-0.43397484228097055
+182,gut unclassified Christensenellaceae,oral Cutibacterium,0.431305441148622
+183,gut unclassified Clostridia,oral Lachnoanaerobaculum,0.46767279850234944
+184,gut unclassified Clostridiales,oral Catonella,-0.41040673170497033
+185,gut unclassified Clostridiales,oral Pseudopropionibacterium,-0.41654393869022993
+186,gut unclassified Clostridiales,oral unclassified Selenomonadaceae,-0.4475211842281276
+187,gut unclassified Erysipelotrichaceae,oral Peptostreptococcus,-0.4119486696806592
+188,gut unclassified Erysipelotrichaceae,oral unclassified Atopobiaceae,0.5008660536268389
+189,gut unclassified Firmicutes,oral Desulfomicrobium,0.4473600042332181
+190,gut unclassified Lachnospiraceae,oral Parascardovia,0.5077199354888892
+191,gut unclassified Oscillospiraceae,oral unclassified Actinomycetaceae,0.4277961613604726
+192,gut unclassified Prevotellaceae,oral Gemella,-0.399250464794964
+193,gut unclassified Prevotellaceae,oral Haemophilus,-0.41481983029343916
+194,gut unclassified Prevotellaceae,oral Mycoplasma,0.5393464897876541
+195,gut unclassified Rhodospirillaceae,oral Acetobacter,0.40698850864707664
+196,gut unclassified Ruminococcaceae,oral Ottowia,-0.40619753104708156
+197,gut unclassified Ruminococcaceae,oral Parascardovia,0.4177824284488631
+198,gut unclassified Verrucomicrobia,oral Acetobacter,0.420332394176489

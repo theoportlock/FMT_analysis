@@ -6,6 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from statannot import add_stat_annotation
 
+#%autoindent
 #3.78×ln[serum bilirubin (mg/dL)] + 11.2×ln[INR] + 9.57×ln[serum creatinine (mg/dL)] + 6.43k
 def meld(df):
     from numpy import log as ln
@@ -51,56 +52,35 @@ def child_pugh(df):
     return result
 
 
-
-baseline=pd.read_csv("../downstream_data/PROFITbaseline.csv",)
-baseline["Days after treatment"]=0
-day7=pd.read_csv("../downstream_data/PROFITday7.csv",)
-day7["Days after treatment"]=7
-day30=pd.read_csv("../downstream_data/PROFITday30.csv",)
-day30["Days after treatment"]=30
-day90=pd.read_csv("../downstream_data/PROFITday90.csv",)
-day90["Days after treatment"]=90
-sample_type = pd.read_csv("../downstream_data/PROFITplaceboTab.csv", index_col=0)
-sample_type = sample_type.set_index(sample_type.index.str.replace("P01","P").str.replace("\ .*", "", regex=True))
-
-vals = pd.concat([baseline,day7,day30,day90])
-vals["Patient_Id"] = vals.Patient.str.replace("P01","P").str.replace("\ .*", "", regex=True)
-formatted_names = pd.merge(vals, sample_type, left_on="Patient_Id", right_on="Patient", how='left')
-formatted_names = formatted_names[formatted_names.Type != np.NaN]
-formatted_names = formatted_names.set_index(['Patient_Id','Days after treatment','Type']).reset_index()
-formatted_names = formatted_names[formatted_names['Bilirubin'].notna()]
+formatted_names = pd.read_csv("metadata.csv", index_col=0)
 formatted_names['MELD_SCORE'] = formatted_names.apply(meld, axis=1)
 formatted_names['CHILD'] = formatted_names.apply(child_pugh, axis=1)
 
+sns.set(rc={'figure.figsize':(11.7,8.27)})
+sns.set_theme(font_scale=0.8)
+
 fig, (meldax, childax) = plt.subplots(1, 2)
 x='Days after treatment'
+y1='MELD_SCORE'
+y2='CHILD'
 hue='Type'
 
-sns.boxplot(data=formatted_names, x=x, y='MELD_SCORE', hue=hue, linewidth=1, ax=meldax)
-sns.swarmplot(data=formatted_names, x=x, y='MELD_SCORE', hue=hue, linewidth=1, ax=meldax)
-sns.boxplot(data=formatted_names, x=x, y='CHILD', hue=hue, linewidth=1, ax=childax)
-sns.swarmplot(data=formatted_names, x=x, y='CHILD', hue=hue, linewidth=1, ax=childax)
+sns.boxplot(data=formatted_names, x=x, y=y1, hue=hue, linewidth=1, ax=meldax).set_title("Patient stool")
+sns.stripplot(data=formatted_names, x=x, y=y1, hue=hue, linewidth=1, jitter=False, ax=meldax)
+sns.pointplot(data=formatted_names.loc[formatted_names.Type == 'FMT'], x=x, y=y1, hue='Patient_ID', legend=False, scale=0.4, palette=['C1'], joined=True, ax=meldax)
+sns.pointplot(data=formatted_names.loc[formatted_names.Type == 'PLACEBO'], x=x, y=y1, hue='Patient_ID', legend=False, scale=0.4, palette=['C0'], joined=True, ax=meldax)
+
+sns.boxplot(data=formatted_names, x=x, y=y2, hue=hue, linewidth=1, ax=childax).set_title("Patient stool")
+sns.stripplot(data=formatted_names, x=x, y=y2, hue=hue, linewidth=1, jitter=False, ax=childax)
+sns.pointplot(data=formatted_names.loc[formatted_names.Type == 'FMT'], x=x, y=y2, hue='Patient_ID', legend=False, scale=0.4, palette=['C1'], joined=True, ax=childax)
+sns.pointplot(data=formatted_names.loc[formatted_names.Type == 'PLACEBO'], x=x, y=y2, hue='Patient_ID', legend=False, scale=0.4, palette=['C0'], joined=True, ax=childax)
 
 #childax.legend([],[], frameon=False)
 meldax.legend([],[], frameon=False)
+plt.legend(bbox_to_anchor=(1.001, 1), loc='upper left', fontsize='small')
 
 sns.despine(trim=True, left=True)
-box_pairs=[((0,'FMT'),(7,'FMT'))]
 
-# Stats
-ax, test_results = add_stat_annotation(
-    meldax,
-    data=formatted_names,
-    x=x,
-    y='MELD_SCORE',
-    hue=hue,
-    test='Mann-Whitney',
-    text_format='full',
-    #loc='outside',
-    box_pairs=box_pairs,
-    verbose=2)
-
-
-plt.show()
+#plt.show()
 plt.tight_layout()
-#plt.savefig("results/meld_child.pdf")
+plt.savefig("results/meld_child.pdf")

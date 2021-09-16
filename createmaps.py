@@ -37,7 +37,7 @@ sumofsm = replacedbykegg[fmtcols].groupby('ko').sum()
 del replacedbykegg
 del kegg
 gc.collect()
-sumofsm.to_csv("keggNorm.csv",  single_file=True)
+sumofsm.to_csv("keggNorm.csv", single_file=True)
 del sumofsm
 
 
@@ -51,7 +51,7 @@ fmtcols.append('sm')
 sumofsm = replacedbyantismash[fmtcols].groupby('sm').sum()
 del replacedbyantismash, antismash
 gc.collect()
-sumofsm.to_csv("antismashNorm.csv",  single_file=True)
+sumofsm.to_csv("antismashNorm.csv", single_file=True)
 del sumofsm
 
 
@@ -64,7 +64,7 @@ fmtcols.append('pfam_name')
 sumofsm = replacedbypfam[fmtcols].groupby('pfam_name').sum()
 del replacedbypfam, pfam
 gc.collect()
-sumofsm.to_csv("pfamNorm.csv",  single_file=True)
+sumofsm.to_csv("pfamNorm.csv", single_file=True)
 del sumofsm
 
 
@@ -78,7 +78,7 @@ fmtcols.append('vf_id')
 sumofsm = replacedbypatric[fmtcols].groupby('vf_id').sum()
 del replacedbypatric, patric
 gc.collect()
-sumofsm.to_csv("patricNorm.csv",  single_file=True)
+sumofsm.to_csv("patricNorm.csv", single_file=True)
 del sumofsm
 
 
@@ -94,7 +94,7 @@ fmtcols.append('Best_Hit_ARO')
 sumofsm = replacedbycard[fmtcols].groupby('Best_Hit_ARO').sum()
 del replacedbycard, card
 gc.collect()
-sumofsm.to_csv("cardNorm.csv",  single_file=True)
+sumofsm.to_csv("cardNorm.csv", single_file=True)
 del sumofsm
 
 
@@ -106,7 +106,7 @@ fmtcols.append('CAZyme')
 sumofsm = replacedbycazyme[fmtcols].groupby('CAZyme').sum()
 del replacedbycazyme, cazyme
 gc.collect()
-sumofsm.to_csv("cazymeNorm.csv",  single_file=True)
+sumofsm.to_csv("cazymeNorm.csv", single_file=True)
 del sumofsm
 
 client.close()

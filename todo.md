@@ -7,6 +7,9 @@ coabundance/functional clusters - network analysis - lookup walktrap! - finds fu
 mapping rate to IGC2 catalog - see atlas
 spearmans clustermap with msp vs metadata
 volcano plot of gene related information and species!
+Random forset + metrics
+Adjusted odds ratio
+Relative expression ordering
 
 look at:
 mophyl (taxonomic annotation)

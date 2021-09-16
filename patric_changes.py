@@ -4,7 +4,7 @@
 Plotting an annotated seaborn correlation heatmap between MSP data and metadata
 Theo Portlock
 '''
-%autoindent
+#%autoindent
 
 import seaborn as sns
 import pandas as pd
@@ -30,16 +30,18 @@ difference = difference.loc[(difference.sum(axis=1) != 1), (difference.sum(axis=
 
 stats = samples_patricMetadata.groupby('Days after treatment').apply(lambda group: mannwhitneyu(baseline, group)[1])
 statsdf = pd.DataFrame(stats.to_list(), columns=samples_patricMetadata.columns, index=averageDays.index).drop(['Days after treatment'], axis=1)
-statsdf.loc[:, (statsdf < 0.05).any(axis=0)]
+#significantMatrix = statsdf.loc[:, (statsdf < 0.05).any(axis=0)]
 
+significantMatrix = (statsdf < 0.002).any(axis=0)
 
+#significantMatrix = (statsdf < 0.05).any(axis=0)
 
 
 # Plot
 g = sns.clustermap(
-    #filteredSlicedCorrelations,
-    filteredSlicedCorrelations.loc[significantMatrix.any(axis=1),:],
-    cmap="vlag",
+    #data=difference.loc[:,significantMatrix].T.iloc[:,1:],
+    col_cluster=False,
+    cmap="viridis",
     vmin=-1,
     vmax=1, 
     yticklabels=True,
@@ -61,6 +63,6 @@ for i, ix in enumerate(g.dendrogram_row.reordered_ind):
         )
         text.set_fontsize(8)
 
-#plt.show()
+plt.show()
 #plt.tight_layout()
 plt.savefig("results/patric_metadata-clustermap.pdf")
