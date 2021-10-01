@@ -77,7 +77,7 @@ for i, ix in enumerate(g.dendrogram_row.reordered_ind):
         )
         text.set_fontsize(8)
 
-#plt.show()
+plt.show()
 #plt.tight_layout()
 g.ax_heatmap.tick_params(axis='both', labelsize=8)
-plt.savefig("results/" + taxaType + "_clustermap.pdf")
+#plt.savefig("results/" + taxaType + "_clustermap.pdf")

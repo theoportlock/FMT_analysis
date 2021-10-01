@@ -15,11 +15,11 @@ samples_metadata = pd.read_csv('metadata.csv', index_col=0)
 samples_gutmsp = pd.read_csv("../downstream_data/merged.final.mgs.med.vec.10M.csv", index_col=0).T
 samples_oralmsp = pd.read_csv("../oral_merged_downstream_data/oralmsps.csv", index_col=0).T
 
-#samples_gutsum = pd.DataFrame(samples_gutmsp.agg(np.count_nonzero, axis=1), columns=['Species richness']).join(samples_metadata)
-samples_gutsum = pd.DataFrame(samples_gutmsp.agg(shannon, axis=1), columns=['Shannon Index']).join(samples_metadata)
+samples_gutsum = pd.DataFrame(samples_gutmsp.agg(np.count_nonzero, axis=1), columns=['Species richness']).join(samples_metadata)
+#samples_gutsum = pd.DataFrame(samples_gutmsp.agg(shannon, axis=1), columns=['Shannon Index']).join(samples_metadata)
 samples_gutsum['Site'] = 'Gut'
-#samples_oralsum = pd.DataFrame(samples_oralmsp.agg(np.count_nonzero, axis=1), columns=['Species richness']).join(samples_metadata)
-samples_oralsum = pd.DataFrame(samples_oralmsp.agg(shannon, axis=1), columns=['Shannon Index']).join(samples_metadata)
+samples_oralsum = pd.DataFrame(samples_oralmsp.agg(np.count_nonzero, axis=1), columns=['Species richness']).join(samples_metadata)
+#samples_oralsum = pd.DataFrame(samples_oralmsp.agg(shannon, axis=1), columns=['Shannon Index']).join(samples_metadata)
 samples_oralsum['Site'] = 'Oral'
 joined = pd.concat([samples_gutsum, samples_oralsum]).reset_index()
 joined['Type'] = joined.Type.fillna('DONOR')
@@ -27,7 +27,7 @@ joined.loc[joined.Type == 'DONOR', 'Site'] = 'DONOR'
 
 # Plot
 x='Days after treatment'
-y='Shannon Index'
+y='Species richness'
 hue='Type'
 col='Site'
 

@@ -24,29 +24,19 @@ gmsp_taxonomy = pd.read_csv("../downstream_data/taxo.csv", index_col=0)
 samples_gtaxonomy = gmsp_samples.join(gmsp_taxonomy[taxaType], how='inner').groupby(taxaType).sum().T
 gmspdf = samples_gtaxonomy.add_prefix('gut ')
 
-omsp_samples = pd.read_csv("../oral_merged_downstream_data/oralmsps.csv", index_col=0)
-omsp_taxonomy = pd.read_csv("../oral_downstream_data/oraltaxo.csv", index_col=0)
-samples_otaxonomy = omsp_samples.join(omsp_taxonomy[taxaType], how='inner').groupby(taxaType).sum().T
-omspdf = samples_otaxonomy.add_prefix('oral ')
-
-joined = omspdf.join(gmspdf, how='inner')
-df = joined.join(samples_metadata[variables], how='inner')
-
-meandf = df.loc[df.Type == 'PLACEBO'].groupby('Days after treatment').mean()
-baseline = meandf.loc[0]
-notbaseline  = df.loc[(df.Type == 'PLACEBO') & (df['Days after treatment'] != 0)].drop("Type", axis =1)
-difference = meandf.sub(baseline.mean())
-subdf = meandf.sub(baseline).T.drop(0, axis=1)
-#subdf.to_csv('subdf.csv')
+df = gmspdf.join(samples_metadata[variables], how='inner')
+df.fillna(0,inplace=True)
 
 #box_pairs = list(itertools.combinations([(a,b) for a in df['Days after treatment'].unique() for b in df["Type"].unique()],2))
 box_pairs = [
-        ((0.0, 'PLACEBO'), (7.0, 'PLACEBO')),
-        ((0.0, 'PLACEBO'), (30.0, 'PLACEBO')),
-        ((0.0, 'PLACEBO'), (90.0, 'PLACEBO')),
-        ((0.0, 'FMT'), (7.0, 'FMT')),
-        ((0.0, 'FMT'), (30.0, 'FMT')),
-        ((0.0, 'FMT'), (90.0, 'FMT'))]
+        ((0.0, 'DONOR'), (0.0, 'PLACEBO')),
+        ((0.0, 'DONOR'), (7.0, 'PLACEBO')),
+        ((0.0, 'DONOR'), (30.0, 'PLACEBO')),
+        ((0.0, 'DONOR'), (90.0, 'PLACEBO')),
+        ((0.0, 'DONOR'), (0.0, 'FMT')),
+        ((0.0, 'DONOR'), (7.0, 'FMT')),
+        ((0.0, 'DONOR'), (30.0, 'FMT')),
+        ((0.0, 'DONOR'), (90.0, 'FMT'))]
 
 
 test_short_name = 'M.W.W'
@@ -82,7 +72,7 @@ plotMatrix = values.loc[significantMatrix.index]
 
 # Plot
 g = sns.clustermap(
-    data=np.tanh(plotMatrix*100000),
+    data=np.tanh(plotMatrix*50000),
     col_cluster=False,
     row_cluster=False,
     cmap="vlag",
@@ -117,5 +107,5 @@ for i, ix in enumerate(plotMatrix.index):
         )
         text.set_fontsize(8)
 
-plt.savefig("results/sigchangegenus.pdf")
+plt.savefig("results/sigchangegenusdonor.pdf")
 #plt.show()

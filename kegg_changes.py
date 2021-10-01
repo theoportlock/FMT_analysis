@@ -19,17 +19,18 @@ variables = ['Days after treatment', 'Type']
 taxaType='genus'
 samples_metadata = pd.read_csv('newnewmetadata.csv', index_col=0).set_index('Sample ID').iloc[1:]
 
-gmsp_samples = pd.read_csv("../downstream_data/merged.final.mgs.med.vec.10M.csv", index_col=0)
-gmsp_taxonomy = pd.read_csv("../downstream_data/taxo.csv", index_col=0)
-samples_gtaxonomy = gmsp_samples.join(gmsp_taxonomy[taxaType], how='inner').groupby(taxaType).sum().T
-gmspdf = samples_gtaxonomy.add_prefix('gut ')
+samples_kegg = pd.read_csv("keggNorm.csv", index_col=0)
+#gmsp_samples = pd.read_csv("../downstream_data/merged.final.mgs.med.vec.10M.csv", index_col=0)
+#gmsp_taxonomy = pd.read_csv("../downstream_data/taxo.csv", index_col=0)
+#samples_gtaxonomy = gmsp_samples.join(gmsp_taxonomy[taxaType], how='inner').groupby(taxaType).sum().T
+#gmspdf = samples_gtaxonomy.add_prefix('gut ')
 
-omsp_samples = pd.read_csv("../oral_merged_downstream_data/oralmsps.csv", index_col=0)
-omsp_taxonomy = pd.read_csv("../oral_downstream_data/oraltaxo.csv", index_col=0)
-samples_otaxonomy = omsp_samples.join(omsp_taxonomy[taxaType], how='inner').groupby(taxaType).sum().T
-omspdf = samples_otaxonomy.add_prefix('oral ')
+#omsp_samples = pd.read_csv("../oral_merged_downstream_data/oralmsps.csv", index_col=0)
+#omsp_taxonomy = pd.read_csv("../oral_downstream_data/oraltaxo.csv", index_col=0)
+#samples_otaxonomy = omsp_samples.join(omsp_taxonomy[taxaType], how='inner').groupby(taxaType).sum().T
+#omspdf = samples_otaxonomy.add_prefix('oral ')
 
-joined = omspdf.join(gmspdf, how='inner')
+joined = samples_kegg.T
 df = joined.join(samples_metadata[variables], how='inner')
 
 meandf = df.loc[df.Type == 'PLACEBO'].groupby('Days after treatment').mean()
@@ -75,7 +76,11 @@ for pair in box_pairs:
     values[pair] = result
 
 #sigpvals = pvalues < 0.05
-significantMatrix = pvalues.loc[(pvalues < 0.05).any(axis=1), : ]
+slicedUncorrectedPValues = pvalues.loc[(pvalues < 0.001).any(axis=1), : ]
+significantMatrix = pd.DataFrame(
+    fdrcorrection(slicedUncorrectedPValues.values.flatten())[0].reshape(slicedUncorrectedPValues.shape),
+    index = slicedUncorrectedPValues.index,
+    columns = slicedUncorrectedPValues.columns)
 
 plotMatrix = values.loc[significantMatrix.index]
 #plotMatrix = plotMatrix.T
@@ -117,5 +122,5 @@ for i, ix in enumerate(plotMatrix.index):
         )
         text.set_fontsize(8)
 
-plt.savefig("results/sigchangegenus.pdf")
-#plt.show()
+plt.savefig("results/sigchangekegg.pdf")
+plt.show()

@@ -70,8 +70,8 @@ ax, test_results = add_stat_annotation(
 
 # Print
 plt.tight_layout()
-plt.savefig("results/shannon.pdf", dpi=600)
-#plt.show()
+#plt.savefig("results/shannon.pdf", dpi=600)
+plt.show()
 
 '''
 from scipy.stats import mannwhitneyu

@@ -63,6 +63,6 @@ gut_patient_placebo_ax.title.set_text('Placebo - Stool')
 oral_patient_fmt_ax.title.set_text('FMT - Saliva')
 oral_patient_placebo_ax.title.set_text('Placebo - Saliva')
 
-#plt.show()
+plt.show()
 plt.tight_layout()
-plt.savefig('results/relative_abundance.pdf')
+#plt.savefig('results/relative_abundance.pdf')
