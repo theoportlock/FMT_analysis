@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import random
 
-samples_metadata = pd.read_csv("newmergedmetadata.csv").set_index('ID_x')
+samples_metadata = pd.read_csv("newnewmetadata.csv").set_index('Sample ID').iloc[1:]
 gut_taxonomy = pd.read_csv("../downstream_data/taxo.csv", index_col=0)
 gut_msp_data = pd.read_csv("../downstream_data/merged.final.mgs.med.vec.10M.csv", index_col=0)
 oral_taxonomy = pd.read_csv("../oral_downstream_data/oraltaxo.csv", index_col=0)
@@ -20,13 +20,21 @@ otaxa = otaxa_not_sum.groupby(otaxa_not_sum.columns, axis=1).sum()
 dtaxa = dtaxa_not_sum.groupby(dtaxa_not_sum.columns, axis=1).sum()
 
 otaxa['Site'], dtaxa['Site'] = 'Oral', 'Gut'
-joined = pd.concat([otaxa, dtaxa])
+pre_joined = pd.concat([otaxa, dtaxa])
+
+joined = pre_joined.xs(['Site',*pre_joined.sum().drop('Site').sort_values(ascending=False).head(19).index], axis=1)
+
+#meta_joined_pre = joined.join(samples_metadata[['Days after treatment', 'Type']], how='inner')
+
+#meta_joined = meta_joined_pre.xs(meta_joined_pre.sum().drop(variables).sort_values(ascending=False).head(19).index, axis=1)
+
+joined['Other'] = pre_joined.drop(pre_joined.sum().drop('Site').sort_values(ascending=False).head(19).index, axis=1).sum(axis=1)
 
 meta_joined = joined.join(samples_metadata[['Days after treatment', 'Type']], how='inner')
 
-sns.set(rc={'figure.figsize':(11.7,8.27)})
+#sns.set(rc={'figure.figsize':(11.7,8.27)})
 #sns.set_palette(sns.color_palette("Spectral", 18))
-sns.set_palette(sns.color_palette("tab20").reverse())
+sns.set_palette(sns.color_palette("tab20"))
 fig, (gut_donor_ax, gut_patient_fmt_ax, gut_patient_placebo_ax, oral_patient_fmt_ax, oral_patient_placebo_ax) = plt.subplots(1, 5, sharey=True, gridspec_kw={'width_ratios': [1, 4, 4, 4, 4]})
 
 donordf = meta_joined.query('Type == "DONOR"').drop('Days after treatment', axis=1).drop_duplicates()
@@ -57,12 +65,12 @@ oralplacnorm.plot.bar(stacked=True, ax=oral_patient_placebo_ax)
 plt.legend(title=taxa_type, bbox_to_anchor=(1.001, 1), loc='upper left', fontsize='small')
 plt.ylim(0,1)
 gut_donor_ax.title.set_text('Donor')
-gut_donor_ax.set_ylabel("Relative Abundance")
+gut_donor_ax.set_ylabel("Mean Family Relative Abundance")
 gut_patient_fmt_ax.title.set_text('FMT - Stool')
 gut_patient_placebo_ax.title.set_text('Placebo - Stool')
 oral_patient_fmt_ax.title.set_text('FMT - Saliva')
 oral_patient_placebo_ax.title.set_text('Placebo - Saliva')
 
-plt.show()
 plt.tight_layout()
-#plt.savefig('results/relative_abundance.pdf')
+plt.savefig('results/family_relative_abundance.pdf')
+plt.show()

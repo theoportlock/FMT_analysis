@@ -6,21 +6,18 @@ import seaborn as sns
 import pandas as pd
 import dask.dataframe as dd
 
-#from dask.distributed import Client
+from dask.distributed import Client
 # set up cluster and workers
-#client = Client(n_workers=4, threads_per_worker=1, memory_limit='64GB') 
-#client
+client = Client(n_workers=4, threads_per_worker=1, memory_limit='64GB') 
+client
 
 # Data location
-file_gut_msp_data="../project/Downstream/norm.csv"
-file_gene_info='../downstream_data/IGC2.1990MSPs.tsv'
-file_kegg='../downstream_data/hs_10_4_igc2_annot_20180614_vs_kegg82.best.csv'
-file_patric='../downstream_data/patricmap.csv'
-file_antismash='../downstream_data/igc2.antismash.simple.txt'
-file_pfam='../downstream_data/igc2PfamDesc.csv'
-file_patric='../downstream_data/patricmap.csv'
-file_card='../downstream_data/hs_10_4_igc2.CARD.tsv'
-file_cazyme='../downstream_data/hs_10_4_igc2_vs_cazy.tsv'
+file_gut_msp_data="../oral_merged_downstream_data/gctNorm10m.csv"
+file_gene_info='../oralMspMappings/hs_8_4_oral.853_MSPs.tsv'
+file_kegg='../downstream_data/oralKeggTab.csv'
+file_pfam='../downstream_data/oralPfamAllTab.csv'
+file_card='../downstream_data/ORAL_CATALOG_2018_01.filt.noN.noHuman.txt'
+file_cazyme='../downstream_data/oralCazyTab.csv'
 
 # Load data
 gene_info = dd.read_csv(file_gene_info, sep='\t')
@@ -37,23 +34,8 @@ sumofsm = replacedbykegg[fmtcols].groupby('ko').sum()
 del replacedbykegg
 del kegg
 gc.collect()
-sumofsm.to_csv("eggNorm.csv", single_file=True)
+sumofsm.to_csv("keggNormOral.csv", single_file=True)
 del sumofsm
-
-
-## antismash
-antismash = pd.read_table(file_antismash)
-antismash.columns = ['gene_name','sm','id']
-replacedbygenename = gut_msp_data.merge(gene_info, how='inner', left_on='Unnamed: 0', right_on='gene_id')
-replacedbyantismash = replacedbygenename.merge(antismash, how='inner', left_on='gene_name', right_on='gene_name')
-fmtcols = [col for col in replacedbyantismash.columns.values if 'FMT' in col]
-fmtcols.append('sm')
-sumofsm = replacedbyantismash[fmtcols].groupby('sm').sum()
-del replacedbyantismash, antismash
-gc.collect()
-sumofsm.to_csv("antismashNorm.csv", single_file=True)
-del sumofsm
-
 
 ## pfam 
 pfam = dd.read_csv(file_pfam, assume_missing=True)
@@ -64,23 +46,8 @@ fmtcols.append('pfam_name')
 sumofsm = replacedbypfam[fmtcols].groupby('pfam_name').sum()
 del replacedbypfam, pfam
 gc.collect()
-sumofsm.to_csv("pfamNorm.csv", single_file=True)
+sumofsm.to_csv("pfamNormOral.csv", single_file=True)
 del sumofsm
-
-
-## patric 
-patric = dd.read_csv(file_patric)
-replacedbygenename = gut_msp_data.merge(gene_info, how='inner', left_on='Unnamed: 0', right_on='gene_id')
-replacedbypatric = replacedbygenename.merge(patric, how='inner', left_on='gene_name', right_on='igc2_id')
-del replacedbygenename
-fmtcols = [col for col in replacedbypatric.columns.values if 'FMT' in col]
-fmtcols.append('vf_id')
-sumofsm = replacedbypatric[fmtcols].groupby('vf_id').sum()
-del replacedbypatric, patric
-gc.collect()
-sumofsm.to_csv("patricNorm.csv", single_file=True)
-del sumofsm
-
 
 ## CARD
 card = pd.read_csv(file_card, sep='\t')
@@ -94,9 +61,8 @@ fmtcols.append('Best_Hit_ARO')
 sumofsm = replacedbycard[fmtcols].groupby('Best_Hit_ARO').sum()
 del replacedbycard, card
 gc.collect()
-sumofsm.to_csv("cardNorm.csv", single_file=True)
+sumofsm.to_csv("cardNormOral.csv", single_file=True)
 del sumofsm
-
 
 ## CAzyme
 cazyme = pd.read_csv(file_cazyme, sep='\t')
@@ -106,7 +72,7 @@ fmtcols.append('CAZyme')
 sumofsm = replacedbycazyme[fmtcols].groupby('CAZyme').sum()
 del replacedbycazyme, cazyme
 gc.collect()
-sumofsm.to_csv("cazymeNorm.csv", single_file=True)
+sumofsm.to_csv("cazymeNormOral.csv", single_file=True)
 del sumofsm
 
 client.close()

@@ -103,7 +103,8 @@ significantMatrix.columns.name='target1'
 edges = slicedCorrelations.stack().reset_index().set_index(['species','target1'])
 sigvals = significantMatrix.stack().reset_index().set_index(['species','target1'])
 sigedges = edges[sigvals].dropna()
-#gx = nx.from_pandas_edgelist(sigedges.reset_index(), 'level_0', 'level_1', 0)
+import networkx as nx
+gx = nx.from_pandas_edgelist(sigedges.reset_index(), 'species', 'target1', 0)
 #sigedges.to_csv('fulledges.csv')
 sigedges = sigedges.reset_index()
 sigedges['source'] = sigedges['species'].apply(lambda x: f"gut {x}")

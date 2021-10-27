@@ -4,7 +4,7 @@ ITOL
 Secondary metabolites
 Percentage of shared species (ISS OSS etc - inflow and outflow species)
 coabundance/functional clusters - network analysis - lookup walktrap! - finds functional clusters - jaccard index
-mapping rate to IGC2 catalog - see atlas
+mjapping rate to IGC2 catalog - see atlas
 spearmans clustermap with msp vs metadata
 volcano plot of gene related information and species!
 Random forset + metrics
@@ -30,17 +30,8 @@ MELD (model for end stage liver disease - evaluates severity)
 	- a function of billiruben, creatine, and INR
 CRP (C reactive protein)
 
-New files:
-
-hs_10_4_igc2.CARD.txt
-igc2PfamDesc.RData
-igc2PfamMat.RData
-hs_v2_sp.xlsx
-hs_8_4_oral_vs_cazy.tsv
-hs_10_4_igc2_vs_cazy.tsv
-hs_10.4_antibio_id.RData
-igc2.antismash.simple.txt
-hs_10_4_igc2_annot_20180614_vs_kegg82.best.RData
-jgiMat.RData
-hs_10_4_igc2_patric.RData
-
+# todo here
+Mappings for the oral catalog
+Do the resistotypes, enterotype, and ortotype
+Fix the machine learning part of the script
+Fix adjusted odds ratio
