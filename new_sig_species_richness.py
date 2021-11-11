@@ -110,5 +110,5 @@ ax, test_results = add_stat_annotation(
     verbose=2)
 
 plt.show()
-plt.tight_layout()
-plt.savefig('results/newsigspec.pdf')
+#plt.tight_layout()
+#plt.savefig('results/newsigspec.pdf')

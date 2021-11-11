@@ -53,5 +53,5 @@ plotter(oral_meta_joined, 30, 'PLACEBO', p30[1])
 plotter(oral_meta_joined, 90, 'PLACEBO', p90[1])
 
 plt.tight_layout(pad=0.1)
-#plt.show()
-plt.savefig("results/barco.pdf", bbox_inches='tight', pad_inches=0.02)
+plt.show()
+#plt.savefig("results/barco.pdf", bbox_inches='tight', pad_inches=0.02)
