@@ -13,10 +13,8 @@ samples_metadata = pd.read_csv("../../data/newmergedmetadata.csv").set_index('ID
 samples_gutmsp = pd.read_csv("../../data/gutmsp.csv", index_col=0).T
 samples_oralmsp = pd.read_csv("../../data/oralmsp.csv", index_col=0).T
 
-#samples_gutsum = pd.DataFrame(samples_gutmsp.agg(np.count_nonzero, axis=1), columns=['Species richness']).join(samples_metadata)
 samples_gutsum = pd.DataFrame(samples_gutmsp.agg(shannon, axis=1), columns=['Shannon Diversity Index']).join(samples_metadata)
 samples_gutsum['Site'] = 'Gut'
-#samples_oralsum = pd.DataFrame(samples_oralmsp.agg(np.count_nonzero, axis=1), columns=['Species richness']).join(samples_metadata)
 samples_oralsum = pd.DataFrame(samples_oralmsp.agg(shannon, axis=1), columns=['Shannon Diversity Index']).join(samples_metadata)
 samples_oralsum['Site'] = 'Oral'
 
@@ -40,7 +38,6 @@ sns.boxplot(data=meta_joined.loc[meta_joined.Site == 'Oral'], x=x, y=y, hue=hue,
 
 handles, labels = oral_patient_ax.get_legend_handles_labels()
 plt.legend(handles[0:2], labels[0:2], title='Group', bbox_to_anchor=(1.001, 1), loc='upper left', fontsize='small')
-#plt.ylim(-0.5,12)
 gut_donor_ax.title.set_text('Donor Stool')
 gut_donor_ax.set_ylabel(y)
 gut_patient_ax.set_ylabel("")
@@ -75,7 +72,6 @@ try:
         pvalues=sigpvals,
         test_short_name=test_short_name,
         text_format='star',
-        #loc='outside',
         verbose=2)
 except:
     pass
@@ -104,11 +100,10 @@ try:
         pvalues=sigpvals,
         test_short_name=test_short_name,
         text_format='star',
-        #loc='outside',
         verbose=2)
 except:
     pass
 
 plt.tight_layout()
-plt.savefig('../results/newsigshannon.pdf')
+plt.savefig('../results/shannon.pdf')
 #plt.show()
