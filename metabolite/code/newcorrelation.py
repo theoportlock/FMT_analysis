@@ -9,6 +9,7 @@ from matplotlib_venn import venn2
 #samples_metadata = pd.read_csv("../../data/newmergedmetadata.csv").set_index('ID_x')
 samples_metadata = pd.read_csv("../../data/newnewmetadata.csv").set_index('Sample ID')
 metabolomics = pd.read_csv("../../data/metabolomics.csv",index_col=1).drop('Unnamed: 0', axis=1)
+#metabolomics.corr(method='spearman').stack().to_csv('metabedges.csv')
 
 gmsp_samples = pd.read_csv("../../data/gutmsp.csv", index_col=0)
 omsp_samples = pd.read_csv("../../data/oralmsp.csv", index_col=0)
@@ -16,7 +17,7 @@ omsp_samples = pd.read_csv("../../data/oralmsp.csv", index_col=0)
 gmsp_gtaxonomy = pd.read_csv("../../../downstream_data/taxo.csv", index_col=0)
 omsp_otaxonomy = pd.read_csv("../../../oral_downstream_data/oraltaxo.csv", index_col=0)
 
-taxaType='genus'
+taxaType='species'
 gtaxonomy_samples = gmsp_samples.join(gmsp_gtaxonomy[taxaType], how='inner').groupby(taxaType).sum()
 samples_gtaxonomy = gtaxonomy_samples.T
 
@@ -53,6 +54,8 @@ slicedCorrelations1 = correlations1.iloc[
         len(gutmetab.columns):,
         :len(gutmetab.columns)]
 
+slicedCorrelations1.index = slicedCorrelations1.index.str.replace('unclassified ', '')
+
 correlations2 = pd.DataFrame(
     c2,
     index=oralmetab.columns.append(oralnotmetab.columns),
@@ -60,6 +63,8 @@ correlations2 = pd.DataFrame(
 slicedCorrelations2 = correlations2.iloc[
         len(oralmetab.columns):,
         :len(oralmetab.columns)]
+
+slicedCorrelations2.index = slicedCorrelations2.index.str.replace('unclassified ', '')
 
 edges1 = slicedCorrelations1.stack().reset_index()
 edges2 = slicedCorrelations2.stack().reset_index()
@@ -71,6 +76,14 @@ edges1.sort_values('value').tail(20).to_csv('../results/gutmetab.csv',index=Fals
 edges2.sort_values('value').tail(20).to_csv('../results/oralmetab.csv',index=False)
 
 '''
+from scipy import stats
+slicedCorrelations1.dropna(inplace=True)
+slicedCorrelations2.dropna(inplace=True)
+s1 = slicedCorrelations1.loc[(np.abs(stats.zscore(slicedCorrelations1) > 2)).T.any()]
+s2 = slicedCorrelations2.loc[(np.abs(stats.zscore(slicedCorrelations2) > 2)).T.any()]
+sns.clustermap(data = s1, cmap='vlag', center=0, xticklabels=True, yticklabels=True)
+sns.clustermap(data = s2, cmap='vlag', center=0, xticklabels=True, yticklabels=True)
+
 # for the pvalue number stuff
 significantMatrix1 = pd.DataFrame(
     fdrcorrection(slicedCorrelations1.values.flatten())[0].reshape(slicedCorrelations1.shape),
