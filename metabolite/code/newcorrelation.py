@@ -72,8 +72,11 @@ edges2 = slicedCorrelations2.stack().reset_index()
 edges1.columns = ['from','to','value']
 edges2.columns = ['from','to','value']
 
-edges1.sort_values('value').tail(20).to_csv('../results/gutmetab.csv',index=False)
-edges2.sort_values('value').tail(20).to_csv('../results/oralmetab.csv',index=False)
+#edges1.sort_values('value').tail(20).to_csv('../results/gutmetab.csv',index=False)
+edges1[np.abs(edges1.value) > 0.4].to_csv('../results/gutmetab.csv',index=False)
+
+#edges2.sort_values('value').tail(20).to_csv('../results/oralmetab.csv',index=False)
+edges2[np.abs(edges2.value) > 0.4].to_csv('../results/oralmetab.csv',index=False)
 
 '''
 from scipy import stats

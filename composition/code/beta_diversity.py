@@ -27,6 +27,10 @@ msptaxo.columns = msptaxo.columns.str.replace(r' &.*', '', regex=True)
 #msptaxo = msptaxo.loc[:, msptaxo.nunique() > 20]
 v=['Days after treatment', 'Type', 'id', 'Donor']
 df = msptaxo.join(meta[v], how='inner').set_index(v)
+gvals = df.reset_index().groupby('id').count()['Days after treatment']
+gfvals = gvals.loc[(gvals == 4) | (gvals == 1)].index
+df.reset_index(inplace=True)
+df = df[df['id'].isin(gfvals)].set_index(v)
 scaled_samples_taxonomy = StandardScaler().fit_transform(df)
 
 Ar_dist = distance.squareform(distance.pdist(scaled_samples_taxonomy, metric="braycurtis"))

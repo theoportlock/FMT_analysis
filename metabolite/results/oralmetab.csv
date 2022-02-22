@@ -1,21 +1,19 @@
 from,to,value
-unclassified Neisseriaceae,Butyric_acid,0.33232787365164096
-unclassified Lachnospiraceae,Valeric_acid,0.33277121756069805
-unclassified Prevotellaceae,Methanol,0.3341671466491648
-Alloprevotella,Propionic_acid,0.3345273631033418
-unclassified Selenomonadaceae,Ethanol,0.33461019325200464
-unclassified Actinomycetaceae,Uracil,0.34344805356691044
-Fusobacterium,N_trimethylamine,0.34775957114896416
-Colibacter,Ethanol,0.3505895146296102
-Escherichia,Tyrosine,0.35129091950778935
-unclassified Neisseriaceae,Uracil,0.3523647219617513
-unclassified Neisseriaceae,Phenylacetic_acid,0.35734074218793566
-Porphyromonas,N_trimethylamine,0.3584307747332795
-unclassified Neisseriaceae,Propionic_acid,0.36020919610077295
-Centipeda,Propionic_acid,0.3651179597398516
-Kingella,Phenylacetic_acid,0.3715171056282014
-Xylanimonas,Uracil,0.3780234902499602
-Oribacterium,Butyric_acid,0.3780820601796411
-Centipeda,N_trimethylamine,0.38876924271363433
-unclassified Bacteroidales,N_methylamine,0.41177151024574166
-unclassified Actinomycetaceae,Valeric_acid,0.4335709863778626
+Actinomyces sp. oral taxon 897,Phenylacetic_acid,-0.4717875460243525
+Campylobacter rectus,Uracil,0.4463162037487292
+Lactobacillus oris,Ethanol,0.5160888020694584
+Neisseria cinerea,Lactic_acid,-0.41644517578633977
+Olsenella profusa,Phenylacetic_acid,-0.4142477014353764
+Porphyromonas endodontalis,Uracil,0.40522095654902446
+Prevotella buccae,Glycine,-0.42557919414260353
+Prevotella sp. F0091,Acetic_acid,0.4432524109493525
+Prevotella sp. oral taxon 306,Propionic_acid,0.40410070733886233
+Selenomonas flueggei,Ethanol,0.4877844826735132
+Treponema vincentii,Glycine,-0.44623116121918277
+Veillonella infantium,Uracil,0.4052910287991036
+Actinomycetaceae,Valeric_acid,0.4335709863778626
+Alloprevotella,Glycine,-0.4130395113511545
+Bacteroidales,N_methylamine,0.41177151024574166
+Desulfovibrio,Glycine,-0.4048082968411717
+Gemella,Phenylacetic_acid,-0.48944405154030246
+Peptostreptococcus,Fumaric_acid,-0.4323030411377718
