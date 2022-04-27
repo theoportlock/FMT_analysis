@@ -32,11 +32,10 @@ import shap
 import skbio
 
 taxaType = 'species'
-variable = 'MELDNA'
+variable = 'MELDPLUS'
 var = variable
 samples_metadata = pd.read_csv('../data/meta.csv').set_index('Sample ID').dropna(subset=variable)
 #samples_metadata = samples_metadata.dropna(subset=variable)
-
 
 msp_samples = pd.read_csv("../data/gutmsp.csv", index_col=0)
 msp_taxonomy = pd.read_csv("../data/guttaxo.csv", index_col=0)
