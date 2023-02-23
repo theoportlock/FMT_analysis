@@ -10,38 +10,50 @@ guttaxo = pd.read_csv("../data/guttaxo.csv", index_col=0)
 oraltaxo = pd.read_csv("../data/oraltaxo.csv", index_col=0)
 
 x = 'Type'
-taxoType='species'
+taxoType='genus'
 variables = ['Days after treatment', 'Type', 'Patient_Id']
 
 taxoOralmsp = oralmsp.T.join(oraltaxo[taxoType]).groupby(taxoType).sum().T
 metaTaxoOralmsp = taxoOralmsp.join(meta[variables], how='inner').set_index(variables)
-functions.abund(metaTaxoOralmsp.sort_index())
+functions.relabund(metaTaxoOralmsp.sort_index())
 plt.show()
+'''
+19, 20, 21, 23, 24, 21, 20, 19, 15, 9,7,6
+'''
 
 taxoGutmsp = gutmsp.T.join(guttaxo[taxoType]).groupby(taxoType).sum().T
 metaTaxoGutmsp = taxoGutmsp.join(meta[variables], how='inner').set_index(variables)
-functions.abund(metaTaxoGutmsp.sort_index())
+functions.relabund(metaTaxoGutmsp.sort_index())
 plt.show()
 
-cor, pval = functions.corr(metaTaxoGutmsp.add_prefix('gut '), metaTaxoOralmsp.add_prefix('oral '))
-functions.clustermap(cor,pval)
+#meta[["id", "Type", "Days after treatment", "entero"]].to_csv("../results/metaentero")
+
+cor, pval = functions.corr(metaTaxoGutmsp.add_prefix('gut '), metaTaxoOralmsp.add_prefix('oral '), min_unique=5)
+thresh = 0.005
+fcor, fpval = cor.loc[pval.lt(thresh).any(axis=1), pval.lt(thresh).any(axis=0)],pval.loc[pval.lt(thresh).any(axis=1), pval.lt(thresh).any(axis=0)]
+functions.clustermap(fcor, fpval.lt(0.005))
+plt.savefig('../results/oralgutcorrgenus.svg')
+plt.show()
 
 df1 = metaTaxoGutmsp.xs('DONOR', level=1).reset_index(drop=True) 
 df2 = metaTaxoGutmsp.xs(0, level=0).droplevel(0)
 df = pd.concat([df1,df2])
-from skbio.stats.composition import multiplicative_replacement
-df = pd.DataFrame(multiplicative_replacement(df), index=df.index, columns=df.columns)
+df = functions.mult(df)
 df1["vals"] = 0
 df2["vals"] = 1
 grouping = pd.concat([df1,df2])['vals']
 
 from skbio.stats.composition import ancom
 from scipy.stats import mannwhitneyu
-ancomdf, percentdf = ancom(df, grouping, significance_test=mannwhitneyu)
-import seaborn as sns
-sns.heatmap(
-    percentdf.loc[ancomdf["Reject null hypothesis"] == True], cmap="vlag", center=0
+ancomdf, percentdf = ancom(
+        df,
+        grouping,
+        significance_test=mannwhitneyu,
+        multiple_comparisons_correction=None
 )
+
+import seaborn as sns
+functions.heatmap(percentdf.loc[ancomdf["Reject null hypothesis"] == True])
 plt.show()
 
 '''
