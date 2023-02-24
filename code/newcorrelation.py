@@ -7,8 +7,8 @@ from scipy.stats import spearmanr
 from matplotlib_venn import venn2
 
 #samples_metadata = pd.read_csv("../../data/newmergedmetadata.csv").set_index('ID_x')
-samples_metadata = pd.read_csv("../../data/newnewmetadata.csv").set_index('Sample ID')
-metabolomics = pd.read_csv("../../data/metabolomics.csv",index_col=1).drop('Unnamed: 0', axis=1)
+samples_metadata = pd.read_csv("../data/newnewmetadata.csv").set_index('Sample ID')
+metabolomics = pd.read_csv("../data/metabolomics.csv",index_col=1).drop('Unnamed: 0', axis=1)
 #metabolomics.corr(method='spearman').stack().to_csv('metabedges.csv')
 
 gmsp_samples = pd.read_csv("../../data/gutmsp.csv", index_col=0)
