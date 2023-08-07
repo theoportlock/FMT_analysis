@@ -21,18 +21,29 @@ oralmsp = pd.read_csv("../data/oralmsp.csv", index_col=0).T
 guttaxo = pd.read_csv("../data/guttaxo.csv", index_col=0)
 oraltaxo = pd.read_csv("../data/oraltaxo.csv", index_col=0)
 
+<<<<<<< HEAD
 #msp=oralmsp.copy()
 msp=gutmsp.copy()
 taxo=guttaxo.copy()
 
 #corr = msp.T.join(taxo["species"]).set_index("species").T.corr(method='spearman')
 corr = msp.T.join(taxo["species"]).set_index("species").T.cov()
+=======
+msp=gutmsp.copy()
+taxo=guttaxo.copy()
+
+corr = msp.T.join(taxo["species"]).set_index("species").T.corr(method='spearman')
+>>>>>>> b1eb95db368a12ae185e9908a6b8b287b7b39b5a
 G = functions.network(corr, thresh = 0.7)
 functions.clusterplot(G)
 plt.tight_layout(); plt.show()
 clust = functions.cluster(G)
 functions.annotateplot(G, clust)
 
+<<<<<<< HEAD
+=======
+# for each cluster - plot
+>>>>>>> b1eb95db368a12ae185e9908a6b8b287b7b39b5a
 for i in clust.unique():
     ncor = corr.loc[clust.loc[clust == i].index, clust.loc[clust == i].index]
     G = functions.network(ncor, thresh = 0.5)
@@ -55,7 +66,11 @@ sns.boxplot(data=b, x="Group", y=0, showfliers=False, boxprops=dict(alpha=.5), a
 
 vals = msp.T.join(taxo["species"]).groupby("species").sum().sum(axis=1)
 c = pd.concat([clust, vals], axis=1).dropna()
+<<<<<<< HEAD
 ax2 = functions.abund()
+=======
+#ax2 = functions.abund()
+>>>>>>> b1eb95db368a12ae185e9908a6b8b287b7b39b5a
 
 df = c.pivot(columns="Group")[0].fillna(0)
 unclass = df[df.index.str.contains("unclassified")].sum()
@@ -67,8 +82,13 @@ df = df.loc[df.T.sum().sort_values().tail(20).index]
 norm = df.T.div(df.sum(axis=0), axis=0)
 norm.plot(kind='bar',stacked=True, width=0.9, cmap='tab20', ylim=(0,1), ax=ax2)
 ax2.legend(title='Taxonomy', bbox_to_anchor=(1.001, 1), loc='upper left', fontsize='small')
+<<<<<<< HEAD
 ax2.ylabel('Relative abundance')
 ax2.setp(ax.get_xticklabels(), rotation=40, ha="right")
+=======
+#ax2.ylabel('Relative abundance')
+#ax2.setp(ax.get_xticklabels(), rotation=40, ha="right")
+>>>>>>> b1eb95db368a12ae185e9908a6b8b287b7b39b5a
 
 plt.tight_layout()
 plt.show()
