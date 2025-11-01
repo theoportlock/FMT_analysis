@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="node" attr.name="status" attr.type="string"/>
+<key id="d4" for="node" attr.name="y" attr.type="double"/>
+<key id="d3" for="node" attr.name="x" attr.type="double"/>
+<key id="d2" for="node" attr.name="label" attr.type="string"/>
+<key id="d1" for="graph" attr.name="suffix" attr.type="string"/>
+<key id="d0" for="graph" attr.name="prefix" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">bash -c '. env.sh 
+</data>
+<data key="d1">'</data>
+<node id="f984c4be-ff54-4f02-b517-12970d25e9d0">
+  <data key="d2">format_species.py</data>
+  <data key="d3">341.0</data>
+  <data key="d4">223.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="54a61731-b783-496f-97ed-cc7c7433c78e">
+  <data key="d2">format_meta.py</data>
+  <data key="d3">350.0</data>
+  <data key="d4">287.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="350493e0-bb38-42c7-9133-9f33fecf84fa">
+  <data key="d2">join.py \
+  results/timemeta.tsv \
+  results/meta.tsv \
+  --on subjectID \
+  -o results/fulltimemeta.tsv</data>
+  <data key="d3">557.0</data>
+  <data key="d4">247.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="22b9988a-c494-4d03-98d2-9b42cdae4ac9">
+  <data key="d2">filter.py \
+  results/fulltimemeta.tsv \
+  -q 'timepoint == 0.0' \
+  -o results/fulltimemeta_baseline.tsv</data>
+  <data key="d3">835.0</data>
+  <data key="d4">266.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="d86b6d51-f482-42e3-8ce8-098aebe357e8">
+  <data key="d2">explain_variance.py \
+  results/species.tsv \
+  --df_cats results/fulltimemeta_baseline.tsv \
+  --explainor healthy \
+  -o results/ev.tsv</data>
+  <data key="d3">1212.0</data>
+  <data key="d4">302.0</data>
+  <data key="d5">ran</data>
+</node>
+<edge source="54a61731-b783-496f-97ed-cc7c7433c78e" target="350493e0-bb38-42c7-9133-9f33fecf84fa"/>
+<edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="22b9988a-c494-4d03-98d2-9b42cdae4ac9"/>
+<edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="d86b6d51-f482-42e3-8ce8-098aebe357e8"/>
+</graph></graphml>

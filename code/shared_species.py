@@ -30,6 +30,18 @@ probaMetaShared = metaShared.groupby(level=[0,1]).mean().sort_index(level=1)
 probaMetaShared = probaMetaShared.T[probaMetaShared.sum() != 0]
 probaMetaShared = probaMetaShared.loc[~probaMetaShared.index.str.contains('unclassified')]
 
+<<<<<<< HEAD
+sns.set(rc={'figure.figsize':(11.7,8.27)})
+sns.set(font_scale=0.6)
+matplotlib.rcParams["svg.fonttype"] = "none"
+matplotlib.rcParams["font.family"] = "Arial"
+matplotlib.rcParams["font.size"] = 12
+sns.set_style("whitegrid")
+g = sns.heatmap(probaMetaShared, yticklabels=True, cbar=False, square=True, cmap='vlag', center=0)
+plt.setp(g.get_xticklabels(), rotation=40, ha="right")
+plt.tight_layout()
+=======
 f.clustermap(probaMetaShared)
+>>>>>>> b1eb95db368a12ae185e9908a6b8b287b7b39b5a
 plt.savefig('../results/sharedspecies.pdf')
 plt.show()

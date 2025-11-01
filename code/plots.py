@@ -28,12 +28,17 @@ plt.show()
 
 #meta[["id", "Type", "Days after treatment", "entero"]].to_csv("../results/metaentero")
 
+<<<<<<< HEAD
+cor, pval = functions.corr(metaTaxoGutmsp.add_prefix('gut '), metaTaxoOralmsp.add_prefix('oral '))
+functions.clustermap(cor,pval)
+=======
 cor, pval = functions.corr(metaTaxoGutmsp.add_prefix('gut '), metaTaxoOralmsp.add_prefix('oral '), min_unique=5)
 thresh = 0.005
 fcor, fpval = cor.loc[pval.lt(thresh).any(axis=1), pval.lt(thresh).any(axis=0)],pval.loc[pval.lt(thresh).any(axis=1), pval.lt(thresh).any(axis=0)]
 functions.clustermap(fcor, fpval.lt(0.005))
 plt.savefig('../results/oralgutcorrgenus.svg')
 plt.show()
+>>>>>>> b1eb95db368a12ae185e9908a6b8b287b7b39b5a
 
 df1 = metaTaxoGutmsp.xs('DONOR', level=1).reset_index(drop=True) 
 df2 = metaTaxoGutmsp.xs(0, level=0).droplevel(0)

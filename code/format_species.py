@@ -15,5 +15,6 @@ df = df.loc[df.sum(axis=1) != 0, df.sum(axis=0) != 0]
 df = df.T.div(df.sum(axis=1), axis=1).T
 
 df = df.T.join(species).dropna().set_index('species').T
+df.index.name = 'sampleID'
 
 df.to_csv(f'results/species.tsv', sep='\t')

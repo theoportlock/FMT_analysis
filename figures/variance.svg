@@ -6,10 +6,14 @@
    version="1.1"
    id="svg475"
    sodipodi:docname="variance.svg"
+<<<<<<< HEAD:figures/variance.svg
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    inkscape:export-filename="variance.png"
    inkscape:export-xdpi="500"
    inkscape:export-ydpi="500"
+=======
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -29,6 +33,7 @@
      inkscape:document-units="pt"
      showgrid="false"
      inkscape:zoom="1.5052083"
+<<<<<<< HEAD:figures/variance.svg
      inkscape:cx="106.96194"
      inkscape:cy="164.42907"
      inkscape:window-width="1916"
@@ -39,6 +44,16 @@
      inkscape:current-layer="svg475"
      inkscape:showpageshadow="0"
      inkscape:deskcolor="#d1d1d1" />
+=======
+     inkscape:cx="192.33218"
+     inkscape:cy="192"
+     inkscape:window-width="1440"
+     inkscape:window-height="774"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="figure_1" />
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
   <metadata
      id="metadata9">
     <rdf:RDF>
@@ -57,6 +72,7 @@
   </metadata>
   <defs
      id="defs13">
+<<<<<<< HEAD:figures/variance.svg
     <marker
        style="overflow:visible"
        id="Arrow1"
@@ -77,6 +93,8 @@
          transform="rotate(180,0.125,0)"
          sodipodi:nodetypes="ccc" />
     </marker>
+=======
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
     <style
        type="text/css"
        id="style11">*{stroke-linejoin: round; stroke-linecap: butt}</style>
@@ -84,6 +102,7 @@
   <g
      id="figure_1">
     <g
+<<<<<<< HEAD:figures/variance.svg
        id="patch_1"
        transform="translate(92.992792,-17.069166)">
       <text
@@ -100,16 +119,38 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+=======
+       id="patch_1">
+      <text
+         xml:space="preserve"
+         style="font-size:8px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';stroke-width:0.75"
+         x="107.6263"
+         y="271.05884"
+         id="text1271"><tspan
+           sodipodi:role="line"
+           id="tspan1269"
+           style="font-size:8px;stroke-width:0.75"
+           x="107.6263"
+           y="271.05884">Days after treatment</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:14px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';stroke-width:0.75"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
          x="-6.9757786"
          y="119.08651"
          id="text2837"><tspan
            sodipodi:role="line"
            id="tspan2835"
+<<<<<<< HEAD:figures/variance.svg
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75"
+=======
+           style="stroke-width:0.75"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
            x="-6.9757786"
            y="119.08651" /></text>
       <text
          xml:space="preserve"
+<<<<<<< HEAD:figures/variance.svg
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:round"
          x="-11.90312"
          y="42.601955"
@@ -218,6 +259,67 @@
     <g
        id="axes_1"
        transform="translate(-56.807452,-6.5373035)">
+=======
+         style="font-size:8px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';stroke-width:0.75"
+         x="28.899654"
+         y="137.52251"
+         id="text3517"><tspan
+           sodipodi:role="line"
+           id="tspan3515"
+           style="font-size:8px;stroke-width:0.75"
+           x="28.899654"
+           y="137.52251">Dataset</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:8px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';stroke-width:0.75"
+         x="212.13321"
+         y="43.12112"
+         id="text4099"><tspan
+           sodipodi:role="line"
+           id="tspan4097"
+           style="font-size:8px;stroke-width:0.75"
+           x="212.13321"
+           y="43.12112">Treatment</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:8px;stroke-width:0.75"
+           x="212.13321"
+           y="53.12112"
+           id="tspan9234">Explained</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:8px;stroke-width:0.75"
+           x="212.13321"
+           y="63.12112"
+           id="tspan4123">Variance</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:8px;stroke-width:0.75"
+           x="212.13321"
+           y="73.121117"
+           id="tspan4125">-log(pval)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:6px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';stroke-width:0.75"
+         x="206.14877"
+         y="133.46368"
+         id="text4837"><tspan
+           sodipodi:role="line"
+           style="font-style:italic;font-size:6px;stroke-width:0.75"
+           x="206.14877"
+           y="133.46368"
+           id="tspan4835">Significance</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:italic;font-size:6px;stroke-width:0.75"
+           x="206.14877"
+           y="140.97826"
+           id="tspan5298">p &lt; 0.05</tspan></text>
+      <path
+         style="font-variation-settings:normal;opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.818;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         d="m 191.83391,132.04671 h 12.45675"
+         id="path7607" />
+    </g>
+    <g
+       id="axes_1"
+       transform="translate(-45,-15)">
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
       <g
          id="patch_2">
         <path
@@ -251,7 +353,16 @@
             </g>
           </g>
           <g
+<<<<<<< HEAD:figures/variance.svg
              id="text_1" />
+=======
+             id="text_1">
+            <text
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial"
+               transform="rotate(-40,458.27822,-90.457325)"
+               id="text29">0.0</text>
+          </g>
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
         </g>
         <g
            id="xtick_2">
@@ -270,7 +381,16 @@
             </g>
           </g>
           <g
+<<<<<<< HEAD:figures/variance.svg
              id="text_2" />
+=======
+             id="text_2">
+            <text
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial"
+               transform="rotate(-40,464.11401,-106.49103)"
+               id="text38">7.0</text>
+          </g>
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
         </g>
         <g
            id="xtick_3">
@@ -289,7 +409,16 @@
             </g>
           </g>
           <g
+<<<<<<< HEAD:figures/variance.svg
              id="text_3" />
+=======
+             id="text_3">
+            <text
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial"
+               transform="rotate(-40,471.89612,-117.17723)"
+               id="text47">30.0</text>
+          </g>
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
         </g>
         <g
            id="xtick_4">
@@ -308,7 +437,16 @@
             </g>
           </g>
           <g
+<<<<<<< HEAD:figures/variance.svg
              id="text_4" />
+=======
+             id="text_4">
+            <text
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial"
+               transform="rotate(-40,477.73191,-133.21093)"
+               id="text56">90.0</text>
+          </g>
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
         </g>
       </g>
       <g
@@ -339,7 +477,11 @@
           <g
              id="text_5">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="42.205399"
                id="text69">oralmsp</text>
@@ -364,7 +506,11 @@
           <g
              id="text_6">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="53.87698"
                id="text78">oralcard</text>
@@ -389,7 +535,11 @@
           <g
              id="text_7">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="65.507538"
                id="text87">oralcazy</text>
@@ -414,7 +564,11 @@
           <g
              id="text_8">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="77.179123"
                id="text96">oralkegg</text>
@@ -439,7 +593,11 @@
           <g
              id="text_9">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="88.934372"
                id="text105">oralpfam</text>
@@ -464,7 +622,11 @@
           <g
              id="text_10">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="100.48126"
                id="text114">gutmsp</text>
@@ -489,7 +651,11 @@
           <g
              id="text_11">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="112.19386"
                id="text123">gutcard</text>
@@ -514,7 +680,11 @@
           <g
              id="text_12">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="123.82442"
                id="text132">gutcazy</text>
@@ -539,7 +709,11 @@
           <g
              id="text_13">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="135.53702"
                id="text141">gutkegg</text>
@@ -564,7 +738,11 @@
           <g
              id="text_14">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="147.25125"
                id="text150">gutpfam</text>
@@ -589,7 +767,11 @@
           <g
              id="text_15">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="158.88017"
                id="text159">cytokines</text>
@@ -614,7 +796,11 @@
           <g
              id="text_16">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="170.59277"
                id="text168">plasmaBA</text>
@@ -639,7 +825,11 @@
           <g
              id="text_17">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="182.26434"
                id="text177">plasmaTrp</text>
@@ -664,7 +854,11 @@
           <g
              id="text_18">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="193.93593"
                id="text186">urineBA</text>
@@ -689,7 +883,11 @@
           <g
              id="text_19">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="205.6075"
                id="text195">urineNMR</text>
@@ -714,7 +912,11 @@
           <g
              id="text_20">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="217.27908"
                id="text204">urineTrp</text>
@@ -739,7 +941,11 @@
           <g
              id="text_21">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="228.95067"
                id="text213">stoolBA</text>
@@ -764,7 +970,11 @@
           <g
              id="text_22">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="240.62224"
                id="text222">stoolNMR</text>
@@ -789,7 +999,11 @@
           <g
              id="text_23">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:end"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:end"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="160.87369"
                y="252.29382"
                id="text231">stoolTrp</text>
@@ -1182,7 +1396,11 @@
       <g
          id="text_24">
         <text
+<<<<<<< HEAD:figures/variance.svg
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle"
+=======
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;line-height:normal;font-family:Arial;text-anchor:middle"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
            x="185.38106"
            y="135.83655"
            id="text389">*</text>
@@ -1190,7 +1408,11 @@
       <g
          id="text_25">
         <text
+<<<<<<< HEAD:figures/variance.svg
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle"
+=======
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;line-height:normal;font-family:Arial;text-anchor:middle"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
            x="173.70947"
            y="159.1797"
            id="text392">*</text>
@@ -1198,7 +1420,11 @@
       <g
          id="text_26">
         <text
+<<<<<<< HEAD:figures/variance.svg
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle"
+=======
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;line-height:normal;font-family:Arial;text-anchor:middle"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
            x="185.38106"
            y="159.1797"
            id="text395">*</text>
@@ -1206,7 +1432,11 @@
       <g
          id="text_27">
         <text
+<<<<<<< HEAD:figures/variance.svg
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle"
+=======
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;line-height:normal;font-family:Arial;text-anchor:middle"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
            x="185.38106"
            y="205.86601"
            id="text398">*</text>
@@ -1214,7 +1444,11 @@
       <g
          id="text_28">
         <text
+<<<<<<< HEAD:figures/variance.svg
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle"
+=======
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8px;line-height:normal;font-family:Arial;text-anchor:middle"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
            x="173.70947"
            y="217.5376"
            id="text401">*</text>
@@ -1222,7 +1456,11 @@
     </g>
     <g
        id="axes_2"
+<<<<<<< HEAD:figures/variance.svg
        transform="translate(-56.807452,-6.5373035)">
+=======
+       transform="translate(-45,-15)">
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
       <g
          id="patch_3">
         <path
@@ -1266,7 +1504,11 @@
           <g
              id="text_29">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:start"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:start"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="243.808"
                y="221.45454"
                id="text419">1</text>
@@ -1291,7 +1533,11 @@
           <g
              id="text_30">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:start"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:start"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="243.808"
                y="183.11314"
                id="text428">2</text>
@@ -1316,7 +1562,11 @@
           <g
              id="text_31">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:start"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:start"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="243.808"
                y="144.77173"
                id="text437">3</text>
@@ -1341,7 +1591,11 @@
           <g
              id="text_32">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:start"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:start"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="243.808"
                y="106.43032"
                id="text446">4</text>
@@ -1366,7 +1620,11 @@
           <g
              id="text_33">
             <text
+<<<<<<< HEAD:figures/variance.svg
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;line-height:normal;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:start"
+=======
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7px;line-height:normal;font-family:Arial;text-anchor:start"
+>>>>>>> 603554b67b74a9b6981321ac8ae6a9d8d01034af:results/variance.svg
                x="243.808"
                y="68.088913"
                id="text455">5</text>
