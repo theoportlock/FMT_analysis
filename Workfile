@@ -45,8 +45,8 @@
   --df_cats results/fulltimemeta_baseline.tsv \
   --explainor healthy \
   -o results/ev.tsv</data>
-  <data key="d3">1230.0</data>
-  <data key="d4">-312.0</data>
+  <data key="d3">1004.2857142857143</data>
+  <data key="d4">-397.7142857142857</data>
   <data key="d5">ran</data>
 </node>
 <node id="ee6f8d64-cb84-4bbb-9b5c-f4138a262105">
@@ -55,8 +55,8 @@
   --metrics richness \
   --tax-level msp \
   -o results/alpha_diversity.tsv</data>
-  <data key="d3">1228.0</data>
-  <data key="d4">160.0</data>
+  <data key="d3">1162.285714285714</data>
+  <data key="d4">250.00000000000003</data>
   <data key="d5">ran</data>
 </node>
 <node id="6b742592-a19b-441d-b108-08bf53bc8367">
@@ -77,8 +77,8 @@
   -m results/fulltimemeta.tsv \
   -col arm \
   --outdir results/arm</data>
-  <data key="d3">1416.0</data>
-  <data key="d4">336.0</data>
+  <data key="d3">1433.142857142857</data>
+  <data key="d4">348.8571428571429</data>
   <data key="d5">ran</data>
 </node>
 <node id="634b3ab5-2b7b-4137-997d-f421a41d364b">
@@ -123,11 +123,101 @@
   <data key="d4">468.0</data>
   <data key="d5">ran</data>
 </node>
+<node id="60b0f42a-52df-41be-9d5d-0d9f43ddbeb6">
+  <data key="d2">format_quality.py</data>
+  <data key="d3">334.0</data>
+  <data key="d4">403.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="4ec8b00a-189d-4804-b393-7b8b3163218e">
+  <data key="d2">group.py \
+  results/quality.tsv \
+  --func mean std \
+  --group_by all \
+  -o results/quality_agg.tsv</data>
+  <data key="d3">998.7809523809524</data>
+  <data key="d4">470.55238095238093</data>
+  <data key="d5">fail</data>
+</node>
+<node id="cb0666a3-31a3-4687-9e1a-0fadf557e315">
+  <data key="d2">explain_variance.py \
+  results/species.tsv \
+  --df_cats results/fulltimemeta_baseline.tsv \
+  --explainor arm \
+  -o results/ev_arm.tsv</data>
+  <data key="d3">1548.5714285714287</data>
+  <data key="d4">-347.14285714285717</data>
+  <data key="d5">ran</data>
+</node>
+<node id="e699f44e-7adc-4e73-b1e0-27b7b7d97788">
+  <data key="d2">filter.py \
+  results/fulltimemeta.tsv \
+  -q 'healthy == False' \
+  -o results/fulltimemeta_treatment.tsv</data>
+  <data key="d3">997.6190476190477</data>
+  <data key="d4">767.3809523809525</data>
+  <data key="d5">ran</data>
+</node>
+<node id="ef50c76b-60e4-4777-a9f3-b23e525a4792">
+  <data key="d2">splitter.py \
+  results/species.tsv \
+  -m results/fulltimemeta_treatment.tsv \
+  -col timepoint \
+  --outdir results/timepoint</data>
+  <data key="d3">1367.1428571428573</data>
+  <data key="d4">857.1428571428572</data>
+  <data key="d5">ran</data>
+</node>
+<node id="f0a9c12f-ea22-4e52-8135-70a6734a4da4">
+  <data key="d2">explain_variance.py \
+  results/timepoint/*/species.tsv \
+  --df_cats results/fulltimemeta_treatment.tsv \
+  --explainor arm \
+  -o results/ev_arm_timepoint.tsv</data>
+  <data key="d3">1741.4285714285716</data>
+  <data key="d4">925.7142857142858</data>
+  <data key="d5">ran</data>
+</node>
+<node id="9f331eb6-99b2-4c77-b258-04bca1586b5b">
+  <data key="d2">baseline_distance.py \
+  results/beta_diversity.tsv \
+  results/timemeta.tsv \
+  -o results/baseline_distance.tsv</data>
+  <data key="d3">1459.266666666667</data>
+  <data key="d4">1227.3333333333335</data>
+  <data key="d5">ran</data>
+</node>
+<node id="275b94db-9f14-4ee0-afad-a53131ea6d65">
+  <data key="d2">beta_diversity.py \
+  results/species.tsv \
+  --metrics bray-curtis \
+  --tax-level msp \
+  -o results/beta_diversity.tsv</data>
+  <data key="d3">1189.4</data>
+  <data key="d4">1160.5333333333335</data>
+  <data key="d5">ran</data>
+</node>
+<node id="0ee42857-10be-4047-a9b2-6b99a63bc904">
+  <data key="d2">pointplot.py   \
+  results/baseline_distance.tsv  \
+  --meta results/fulltimemeta_treatment.tsv  \
+  -x timepoint \
+  -y 'bray-curtis_0.0' \
+  --hue 'arm' \
+  --id subjectID \
+  -o results/testpoint2.svg</data>
+  <data key="d3">1770.8000000000002</data>
+  <data key="d4">1295.6666666666667</data>
+  <data key="d5">ran</data>
+</node>
 <edge source="f984c4be-ff54-4f02-b517-12970d25e9d0" target="350493e0-bb38-42c7-9133-9f33fecf84fa"/>
 <edge source="54a61731-b783-496f-97ed-cc7c7433c78e" target="350493e0-bb38-42c7-9133-9f33fecf84fa"/>
 <edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="22b9988a-c494-4d03-98d2-9b42cdae4ac9"/>
+<edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="4ec8b00a-189d-4804-b393-7b8b3163218e"/>
+<edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="e699f44e-7adc-4e73-b1e0-27b7b7d97788"/>
 <edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="d86b6d51-f482-42e3-8ce8-098aebe357e8"/>
 <edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="ee6f8d64-cb84-4bbb-9b5c-f4138a262105"/>
+<edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="cb0666a3-31a3-4687-9e1a-0fadf557e315"/>
 <edge source="ee6f8d64-cb84-4bbb-9b5c-f4138a262105" target="5fffbe18-aa93-4d9d-b251-32eb6414e4db"/>
 <edge source="6b742592-a19b-441d-b108-08bf53bc8367" target="77c91e57-7507-4d5e-9446-fea2af8551c0"/>
 <edge source="5fffbe18-aa93-4d9d-b251-32eb6414e4db" target="6b742592-a19b-441d-b108-08bf53bc8367"/>
@@ -136,4 +226,10 @@
 <edge source="634b3ab5-2b7b-4137-997d-f421a41d364b" target="77c91e57-7507-4d5e-9446-fea2af8551c0"/>
 <edge source="7a8c3793-ac20-4f18-b73f-c56b79807f64" target="77c91e57-7507-4d5e-9446-fea2af8551c0"/>
 <edge source="77c91e57-7507-4d5e-9446-fea2af8551c0" target="29a8388c-0449-4240-ad89-68256e613d89"/>
+<edge source="60b0f42a-52df-41be-9d5d-0d9f43ddbeb6" target="350493e0-bb38-42c7-9133-9f33fecf84fa"/>
+<edge source="e699f44e-7adc-4e73-b1e0-27b7b7d97788" target="ef50c76b-60e4-4777-a9f3-b23e525a4792"/>
+<edge source="e699f44e-7adc-4e73-b1e0-27b7b7d97788" target="275b94db-9f14-4ee0-afad-a53131ea6d65"/>
+<edge source="ef50c76b-60e4-4777-a9f3-b23e525a4792" target="f0a9c12f-ea22-4e52-8135-70a6734a4da4"/>
+<edge source="9f331eb6-99b2-4c77-b258-04bca1586b5b" target="0ee42857-10be-4047-a9b2-6b99a63bc904"/>
+<edge source="275b94db-9f14-4ee0-afad-a53131ea6d65" target="9f331eb6-99b2-4c77-b258-04bca1586b5b"/>
 </graph></graphml>
