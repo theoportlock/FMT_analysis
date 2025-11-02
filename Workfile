@@ -10,8 +10,8 @@
 <data key="d1">'</data>
 <node id="f984c4be-ff54-4f02-b517-12970d25e9d0">
   <data key="d2">format_species.py</data>
-  <data key="d3">341.0</data>
-  <data key="d4">223.0</data>
+  <data key="d3">355.0</data>
+  <data key="d4">181.0</data>
   <data key="d5">ran</data>
 </node>
 <node id="54a61731-b783-496f-97ed-cc7c7433c78e">
@@ -45,11 +45,95 @@
   --df_cats results/fulltimemeta_baseline.tsv \
   --explainor healthy \
   -o results/ev.tsv</data>
-  <data key="d3">1212.0</data>
-  <data key="d4">302.0</data>
+  <data key="d3">1230.0</data>
+  <data key="d4">-312.0</data>
   <data key="d5">ran</data>
 </node>
+<node id="ee6f8d64-cb84-4bbb-9b5c-f4138a262105">
+  <data key="d2">alpha_diversity.py \
+  results/species.tsv \
+  --metrics richness \
+  --tax-level msp \
+  -o results/alpha_diversity.tsv</data>
+  <data key="d3">1228.0</data>
+  <data key="d4">160.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="6b742592-a19b-441d-b108-08bf53bc8367">
+  <data key="d2">box.py \
+  results/arm/FMT/alpha_diversity.tsv \
+  --meta results/fulltimemeta.tsv \
+  -x timepoint \
+  -y Richness \
+  --ymax 300 \
+  -o results/FMT_richness_box.svg</data>
+  <data key="d3">1714.0</data>
+  <data key="d4">580.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="5fffbe18-aa93-4d9d-b251-32eb6414e4db">
+  <data key="d2">splitter.py \
+  results/alpha_diversity.tsv \
+  -m results/fulltimemeta.tsv \
+  -col arm \
+  --outdir results/arm</data>
+  <data key="d3">1416.0</data>
+  <data key="d4">336.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="634b3ab5-2b7b-4137-997d-f421a41d364b">
+  <data key="d2">box.py \
+  results/arm/PLACEBO/alpha_diversity.tsv \
+  --meta results/fulltimemeta.tsv \
+  -x timepoint \
+  -y Richness \
+  --ymax 300 \
+  -o results/PLACEBO_richness_box.svg</data>
+  <data key="d3">1716.0</data>
+  <data key="d4">390.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="7a8c3793-ac20-4f18-b73f-c56b79807f64">
+  <data key="d2">box.py \
+  results/alpha_diversity.tsv \
+  --meta results/fulltimemeta_baseline.tsv \
+  -x healthy \
+  -y Richness \
+  --ymax 300 \
+  --figsize 1.5,2 \
+  -o results/baseline_richness_box.svg</data>
+  <data key="d3">1722.0</data>
+  <data key="d4">152.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="77c91e57-7507-4d5e-9446-fea2af8551c0">
+  <data key="d2">arrange_svgs.py \
+  --rows 1 \
+  results/baseline_richness_box.svg \
+  results/FMT_richness_box.svg \
+  results/PLACEBO_richness_box.svg \
+  -o results/richness_box_figure.svg</data>
+  <data key="d3">2174.0</data>
+  <data key="d4">404.0</data>
+  <data key="d5">ran</data>
+</node>
+<node id="29a8388c-0449-4240-ad89-68256e613d89">
+  <data key="d2">inkview results/richness_box_figure.svg</data>
+  <data key="d3">2514.0</data>
+  <data key="d4">468.0</data>
+  <data key="d5">ran</data>
+</node>
+<edge source="f984c4be-ff54-4f02-b517-12970d25e9d0" target="350493e0-bb38-42c7-9133-9f33fecf84fa"/>
 <edge source="54a61731-b783-496f-97ed-cc7c7433c78e" target="350493e0-bb38-42c7-9133-9f33fecf84fa"/>
 <edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="22b9988a-c494-4d03-98d2-9b42cdae4ac9"/>
 <edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="d86b6d51-f482-42e3-8ce8-098aebe357e8"/>
+<edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="ee6f8d64-cb84-4bbb-9b5c-f4138a262105"/>
+<edge source="ee6f8d64-cb84-4bbb-9b5c-f4138a262105" target="5fffbe18-aa93-4d9d-b251-32eb6414e4db"/>
+<edge source="6b742592-a19b-441d-b108-08bf53bc8367" target="77c91e57-7507-4d5e-9446-fea2af8551c0"/>
+<edge source="5fffbe18-aa93-4d9d-b251-32eb6414e4db" target="6b742592-a19b-441d-b108-08bf53bc8367"/>
+<edge source="5fffbe18-aa93-4d9d-b251-32eb6414e4db" target="7a8c3793-ac20-4f18-b73f-c56b79807f64"/>
+<edge source="5fffbe18-aa93-4d9d-b251-32eb6414e4db" target="634b3ab5-2b7b-4137-997d-f421a41d364b"/>
+<edge source="634b3ab5-2b7b-4137-997d-f421a41d364b" target="77c91e57-7507-4d5e-9446-fea2af8551c0"/>
+<edge source="7a8c3793-ac20-4f18-b73f-c56b79807f64" target="77c91e57-7507-4d5e-9446-fea2af8551c0"/>
+<edge source="77c91e57-7507-4d5e-9446-fea2af8551c0" target="29a8388c-0449-4240-ad89-68256e613d89"/>
 </graph></graphml>
