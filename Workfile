@@ -1,100 +1,165 @@
 <?xml version='1.0' encoding='utf-8'?>
-<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="node" attr.name="status" attr.type="string"/>
-<key id="d4" for="node" attr.name="y" attr.type="double"/>
-<key id="d3" for="node" attr.name="x" attr.type="double"/>
-<key id="d2" for="node" attr.name="label" attr.type="string"/>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d11" for="edge" attr.name="status" attr.type="string"/>
+<key id="d10" for="edge" attr.name="id" attr.type="string"/>
+<key id="d9" for="node" attr.name="y" attr.type="double"/>
+<key id="d8" for="node" attr.name="x" attr.type="double"/>
+<key id="d7" for="node" attr.name="log" attr.type="string"/>
+<key id="d6" for="node" attr.name="status" attr.type="string"/>
+<key id="d5" for="node" attr.name="y" attr.type="string"/>
+<key id="d4" for="node" attr.name="x" attr.type="string"/>
+<key id="d3" for="node" attr.name="label" attr.type="string"/>
+<key id="d2" for="graph" attr.name="wrapper" attr.type="string"/>
 <key id="d1" for="graph" attr.name="suffix" attr.type="string"/>
 <key id="d0" for="graph" attr.name="prefix" attr.type="string"/>
 <graph edgedefault="directed"><data key="d0">bash -c '. env.sh 
 </data>
 <data key="d1">'</data>
+<data key="d2">bash -c 'cd /home/tpor598/FMT_analysis &amp;&amp; . env.sh &amp;&amp; {}'</data>
 <node id="f984c4be-ff54-4f02-b517-12970d25e9d0">
-  <data key="d2">format_species.py</data>
-  <data key="d3">355.0</data>
-  <data key="d4">181.0</data>
-  <data key="d5">ran</data>
+  <data key="d3">format_species.py</data>
+  <data key="d4">355.0</data>
+  <data key="d5">181.0</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+
+STDERR:</data>
 </node>
 <node id="54a61731-b783-496f-97ed-cc7c7433c78e">
-  <data key="d2">format_meta.py</data>
-  <data key="d3">350.0</data>
-  <data key="d4">287.0</data>
-  <data key="d5">ran</data>
+  <data key="d3">format_meta.py</data>
+  <data key="d4">350.0</data>
+  <data key="d5">287.0</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+
+STDERR:</data>
 </node>
 <node id="350493e0-bb38-42c7-9133-9f33fecf84fa">
-  <data key="d2">join.py \
+  <data key="d3">join.py \
   results/timemeta.tsv \
   results/meta.tsv \
   --on subjectID \
   -o results/fulltimemeta.tsv</data>
-  <data key="d3">557.0</data>
-  <data key="d4">247.0</data>
-  <data key="d5">ran</data>
+  <data key="d4">557.0</data>
+  <data key="d5">247.0</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+
+STDERR:</data>
 </node>
 <node id="22b9988a-c494-4d03-98d2-9b42cdae4ac9">
-  <data key="d2">filter.py \
+  <data key="d3">filter.py \
   results/fulltimemeta.tsv \
   -q 'timepoint == 0.0' \
   -o results/fulltimemeta_baseline.tsv</data>
-  <data key="d3">835.0</data>
-  <data key="d4">266.0</data>
-  <data key="d5">ran</data>
+  <data key="d4">835.0</data>
+  <data key="d5">266.0</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+         subjectID  timepoint  MELD aetiology      arm donorID  healthy
+sampleID                                                               
+FMT105       P0004        0.0  15.0   alcohol      FMT   D1101    False
+FMT109       P0005        0.0  14.0       HCV      FMT   D1101    False
+FMT113       P0006        0.0  15.0   alcohol      FMT   D1501    False
+FMT117       P0007        0.0   NaN   alcohol      FMT   D1501    False
+FMT121       P0009        0.0  16.0   alcohol  PLACEBO     NaN    False
+FMT125       P0011        0.0  10.0   alcohol  PLACEBO     NaN    False
+FMT128       P0013        0.0  11.0   alcohol      FMT   D1203    False
+FMT132       P0015        0.0  14.0   alcohol      FMT   D1802    False
+FMT136       P0016        0.0  10.0       HCV      FMT   D1203    False
+FMT144       P0019        0.0  15.0   alcohol      FMT   D1607    False
+FMT148       P0020        0.0  12.0      NASH      FMT   D1607    False
+FMT152       P0021        0.0  13.0       HCV      FMT   D1801    False
+FMT156       P0022        0.0  14.0       PBC  PLACEBO     NaN    False
+FMT164       P0024        0.0   NaN   alcohol      FMT   D1801    False
+FMT168       P0026        0.0  12.0   alcohol  PLACEBO     NaN    False
+FMT172       P0027        0.0  12.0      NASH      FMT   D1802    False
+FMT180       P0031        0.0  10.0   alcohol  PLACEBO     NaN    False
+FMT184       D1101        0.0   NaN       NaN    DONOR     NaN     True
+FMT185       D1201        0.0   NaN       NaN    DONOR     NaN     True
+FMT186       D1501        0.0   NaN       NaN    DONOR     NaN     True
+FMT188       D1801        0.0   NaN       NaN    DONOR     NaN     True
+FMT189       D1203        0.0   NaN       NaN    DONOR     NaN     True
+FMT190       D1802        0.0   NaN       NaN    DONOR     NaN     True
+FMT194       D1607        0.0   NaN       NaN    DONOR     NaN     True
+
+STDERR:</data>
 </node>
 <node id="d86b6d51-f482-42e3-8ce8-098aebe357e8">
-  <data key="d2">explain_variance.py \
+  <data key="d3">explain_variance.py \
   results/species.tsv \
   --df_cats results/fulltimemeta_baseline.tsv \
   --explainor healthy \
   -o results/ev.tsv</data>
-  <data key="d3">1004.2857142857143</data>
-  <data key="d4">-397.7142857142857</data>
-  <data key="d5">ran</data>
+  <data key="d4">1451.7857142857144</data>
+  <data key="d5">-397.7142857142857</data>
+  <data key="d6"></data>
 </node>
 <node id="ee6f8d64-cb84-4bbb-9b5c-f4138a262105">
-  <data key="d2">alpha_diversity.py \
+  <data key="d3">alpha_diversity.py \
   results/species.tsv \
   --metrics richness \
   --tax-level msp \
   -o results/alpha_diversity.tsv</data>
-  <data key="d3">1162.285714285714</data>
-  <data key="d4">250.00000000000003</data>
-  <data key="d5">ran</data>
+  <data key="d4">1162.285714285714</data>
+  <data key="d5">250.00000000000003</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+Alpha diversity table saved to: results/alpha_diversity.tsv
+
+STDERR:</data>
 </node>
 <node id="6b742592-a19b-441d-b108-08bf53bc8367">
-  <data key="d2">box.py \
+  <data key="d3">box.py \
   results/arm/FMT/alpha_diversity.tsv \
   --meta results/fulltimemeta.tsv \
   -x timepoint \
   -y Richness \
   --ymax 300 \
   -o results/FMT_richness_box.svg</data>
-  <data key="d3">1714.0</data>
-  <data key="d4">580.0</data>
-  <data key="d5">ran</data>
+  <data key="d4">1714.0</data>
+  <data key="d5">580.0</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+Index(['Richness', 'subjectID', 'timepoint', 'MELD', 'aetiology', 'arm',
+       'donorID', 'healthy'],
+      dtype='object')
+
+STDERR:</data>
 </node>
 <node id="5fffbe18-aa93-4d9d-b251-32eb6414e4db">
-  <data key="d2">splitter.py \
+  <data key="d3">splitter.py \
   results/alpha_diversity.tsv \
   -m results/fulltimemeta.tsv \
   -col arm \
   --outdir results/arm</data>
-  <data key="d3">1433.142857142857</data>
-  <data key="d4">348.8571428571429</data>
-  <data key="d5">ran</data>
+  <data key="d4">1433.142857142857</data>
+  <data key="d5">348.8571428571429</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+Split files saved to subfolders in: /home/tpor598/FMT_analysis/results/arm
+
+STDERR:</data>
 </node>
 <node id="634b3ab5-2b7b-4137-997d-f421a41d364b">
-  <data key="d2">box.py \
+  <data key="d3">box.py \
   results/arm/PLACEBO/alpha_diversity.tsv \
   --meta results/fulltimemeta.tsv \
   -x timepoint \
   -y Richness \
   --ymax 300 \
   -o results/PLACEBO_richness_box.svg</data>
-  <data key="d3">1716.0</data>
-  <data key="d4">390.0</data>
-  <data key="d5">ran</data>
+  <data key="d4">1716.0</data>
+  <data key="d5">390.0</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+Index(['Richness', 'subjectID', 'timepoint', 'MELD', 'aetiology', 'arm',
+       'donorID', 'healthy'],
+      dtype='object')
+
+STDERR:</data>
 </node>
 <node id="7a8c3793-ac20-4f18-b73f-c56b79807f64">
-  <data key="d2">box.py \
+  <data key="d3">box.py \
   results/alpha_diversity.tsv \
   --meta results/fulltimemeta_baseline.tsv \
   -x healthy \
@@ -102,103 +167,134 @@
   --ymax 300 \
   --figsize 1.5,2 \
   -o results/baseline_richness_box.svg</data>
-  <data key="d3">1722.0</data>
-  <data key="d4">152.0</data>
-  <data key="d5">ran</data>
+  <data key="d4">1722.0</data>
+  <data key="d5">152.0</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+Index(['Richness', 'subjectID', 'timepoint', 'MELD', 'aetiology', 'arm',
+       'donorID', 'healthy'],
+      dtype='object')
+
+STDERR:</data>
 </node>
 <node id="77c91e57-7507-4d5e-9446-fea2af8551c0">
-  <data key="d2">arrange_svgs.py \
+  <data key="d3">arrange_svgs.py \
   --rows 1 \
   results/baseline_richness_box.svg \
   results/FMT_richness_box.svg \
   results/PLACEBO_richness_box.svg \
   -o results/richness_box_figure.svg</data>
-  <data key="d3">2174.0</data>
-  <data key="d4">404.0</data>
-  <data key="d5">ran</data>
+  <data key="d4">2174.0</data>
+  <data key="d5">404.0</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+Output written to results/richness_box_figure.svg
+
+STDERR:</data>
 </node>
 <node id="29a8388c-0449-4240-ad89-68256e613d89">
-  <data key="d2">inkview results/richness_box_figure.svg</data>
-  <data key="d3">2514.0</data>
-  <data key="d4">468.0</data>
-  <data key="d5">ran</data>
+  <data key="d3">inkview results/richness_box_figure.svg</data>
+  <data key="d4">2514.0</data>
+  <data key="d5">468.0</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+
+STDERR:
+/home/tpor598/FMT_analysis/results/richness_box_figure.svg:2: parser error : Attribute xmlns redefined
+ 436.19062499999995 145.432031" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                                               ^
+add_actions_edit_document: no app!
+add_actions_pages: no app!
+add_actions_undo: no app!</data>
 </node>
 <node id="60b0f42a-52df-41be-9d5d-0d9f43ddbeb6">
-  <data key="d2">format_quality.py</data>
-  <data key="d3">334.0</data>
-  <data key="d4">403.0</data>
-  <data key="d5">ran</data>
+  <data key="d3">format_quality.py</data>
+  <data key="d4">334.0</data>
+  <data key="d5">403.0</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+
+STDERR:</data>
 </node>
 <node id="4ec8b00a-189d-4804-b393-7b8b3163218e">
-  <data key="d2">group.py \
+  <data key="d3">group.py \
   results/quality.tsv \
   --func mean std \
   --group_by all \
   -o results/quality_agg.tsv</data>
-  <data key="d3">998.7809523809524</data>
-  <data key="d4">470.55238095238093</data>
-  <data key="d5">fail</data>
+  <data key="d4">998.7809523809524</data>
+  <data key="d5">470.55238095238093</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+     mean_mean    std_std
+all      61.96  10.717331
+
+STDERR:</data>
 </node>
 <node id="cb0666a3-31a3-4687-9e1a-0fadf557e315">
-  <data key="d2">explain_variance.py \
+  <data key="d3">explain_variance.py \
   results/species.tsv \
   --df_cats results/fulltimemeta_baseline.tsv \
   --explainor arm \
   -o results/ev_arm.tsv</data>
-  <data key="d3">1548.5714285714287</data>
-  <data key="d4">-347.14285714285717</data>
-  <data key="d5">ran</data>
+  <data key="d4">1426.3214285714287</data>
+  <data key="d5">-566.3928571428571</data>
+  <data key="d6"></data>
 </node>
 <node id="e699f44e-7adc-4e73-b1e0-27b7b7d97788">
-  <data key="d2">filter.py \
+  <data key="d3">filter.py \
   results/fulltimemeta.tsv \
   -q 'healthy == False' \
   -o results/fulltimemeta_treatment.tsv</data>
-  <data key="d3">997.6190476190477</data>
-  <data key="d4">767.3809523809525</data>
-  <data key="d5">ran</data>
+  <data key="d8">997.6190476190477</data>
+  <data key="d9">767.3809523809525</data>
+  <data key="d6"></data>
 </node>
 <node id="ef50c76b-60e4-4777-a9f3-b23e525a4792">
-  <data key="d2">splitter.py \
+  <data key="d3">splitter.py \
   results/species.tsv \
   -m results/fulltimemeta_treatment.tsv \
   -col timepoint \
   --outdir results/timepoint</data>
-  <data key="d3">1367.1428571428573</data>
-  <data key="d4">857.1428571428572</data>
-  <data key="d5">ran</data>
+  <data key="d8">1367.1428571428573</data>
+  <data key="d9">857.1428571428572</data>
+  <data key="d6"></data>
 </node>
 <node id="f0a9c12f-ea22-4e52-8135-70a6734a4da4">
-  <data key="d2">explain_variance.py \
+  <data key="d3">explain_variance.py \
   results/timepoint/*/species.tsv \
   --df_cats results/fulltimemeta_treatment.tsv \
   --explainor arm \
   -o results/ev_arm_timepoint.tsv</data>
-  <data key="d3">1741.4285714285716</data>
-  <data key="d4">925.7142857142858</data>
-  <data key="d5">ran</data>
+  <data key="d8">1741.4285714285716</data>
+  <data key="d9">925.7142857142858</data>
+  <data key="d6"></data>
 </node>
 <node id="9f331eb6-99b2-4c77-b258-04bca1586b5b">
-  <data key="d2">baseline_distance.py \
+  <data key="d3">baseline_distance.py \
   results/beta_diversity.tsv \
   results/timemeta.tsv \
   -o results/baseline_distance.tsv</data>
-  <data key="d3">1459.266666666667</data>
-  <data key="d4">1227.3333333333335</data>
-  <data key="d5">ran</data>
+  <data key="d4">1459.266666666667</data>
+  <data key="d5">1227.3333333333335</data>
+  <data key="d6"></data>
 </node>
 <node id="275b94db-9f14-4ee0-afad-a53131ea6d65">
-  <data key="d2">beta_diversity.py \
+  <data key="d3">beta_diversity.py \
   results/species.tsv \
   --metrics bray-curtis \
   --tax-level msp \
   -o results/beta_diversity.tsv</data>
-  <data key="d3">1189.4</data>
-  <data key="d4">1160.5333333333335</data>
-  <data key="d5">ran</data>
+  <data key="d4">1189.4</data>
+  <data key="d5">1160.5333333333335</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+Beta diversity table saved to: results/beta_diversity.tsv
+
+STDERR:</data>
 </node>
 <node id="0ee42857-10be-4047-a9b2-6b99a63bc904">
-  <data key="d2">pointplot.py   \
+  <data key="d3">pointplot.py   \
   results/baseline_distance.tsv  \
   --meta results/fulltimemeta_treatment.tsv  \
   -x timepoint \
@@ -206,30 +302,404 @@
   --hue 'arm' \
   --id subjectID \
   -o results/testpoint2.svg</data>
-  <data key="d3">1770.8000000000002</data>
-  <data key="d4">1295.6666666666667</data>
-  <data key="d5">ran</data>
+  <data key="d8">1770.8000000000002</data>
+  <data key="d9">1295.6666666666667</data>
+  <data key="d6"></data>
 </node>
-<edge source="f984c4be-ff54-4f02-b517-12970d25e9d0" target="350493e0-bb38-42c7-9133-9f33fecf84fa"/>
-<edge source="54a61731-b783-496f-97ed-cc7c7433c78e" target="350493e0-bb38-42c7-9133-9f33fecf84fa"/>
-<edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="22b9988a-c494-4d03-98d2-9b42cdae4ac9"/>
-<edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="4ec8b00a-189d-4804-b393-7b8b3163218e"/>
-<edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="e699f44e-7adc-4e73-b1e0-27b7b7d97788"/>
-<edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="d86b6d51-f482-42e3-8ce8-098aebe357e8"/>
-<edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="ee6f8d64-cb84-4bbb-9b5c-f4138a262105"/>
-<edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="cb0666a3-31a3-4687-9e1a-0fadf557e315"/>
-<edge source="ee6f8d64-cb84-4bbb-9b5c-f4138a262105" target="5fffbe18-aa93-4d9d-b251-32eb6414e4db"/>
-<edge source="6b742592-a19b-441d-b108-08bf53bc8367" target="77c91e57-7507-4d5e-9446-fea2af8551c0"/>
-<edge source="5fffbe18-aa93-4d9d-b251-32eb6414e4db" target="6b742592-a19b-441d-b108-08bf53bc8367"/>
-<edge source="5fffbe18-aa93-4d9d-b251-32eb6414e4db" target="7a8c3793-ac20-4f18-b73f-c56b79807f64"/>
-<edge source="5fffbe18-aa93-4d9d-b251-32eb6414e4db" target="634b3ab5-2b7b-4137-997d-f421a41d364b"/>
-<edge source="634b3ab5-2b7b-4137-997d-f421a41d364b" target="77c91e57-7507-4d5e-9446-fea2af8551c0"/>
-<edge source="7a8c3793-ac20-4f18-b73f-c56b79807f64" target="77c91e57-7507-4d5e-9446-fea2af8551c0"/>
-<edge source="77c91e57-7507-4d5e-9446-fea2af8551c0" target="29a8388c-0449-4240-ad89-68256e613d89"/>
-<edge source="60b0f42a-52df-41be-9d5d-0d9f43ddbeb6" target="350493e0-bb38-42c7-9133-9f33fecf84fa"/>
+<node id="0f27a143-ec41-41ea-aeda-a6dfd6899c3e">
+  <data key="d3">filter.py \
+  results/species.tsv \
+  -fdf results/fulltimemeta_baseline.tsv \
+  -o results/species_baseline.tsv</data>
+  <data key="d4">1064.7499999999998</data>
+  <data key="d5">-249.125</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+          Bacteroides cellulosilyticus:msp_0003  ...  unclassified Lachnospiraceae:msp_2168
+sampleID                                         ...                                       
+FMT105                                 0.000000  ...                               0.000000
+FMT109                                 0.000208  ...                               0.000000
+FMT113                                 0.003883  ...                               0.000000
+FMT117                                 0.001689  ...                               0.000000
+FMT121                                 0.000000  ...                               0.000000
+FMT125                                 0.000000  ...                               0.000000
+FMT128                                 0.005158  ...                               0.000000
+FMT132                                 0.000000  ...                               0.000000
+FMT136                                 0.000000  ...                               0.000000
+FMT144                                 0.000000  ...                               0.003452
+FMT148                                 0.000000  ...                               0.000000
+FMT152                                 0.000000  ...                               0.000000
+FMT156                                 0.000085  ...                               0.000000
+FMT164                                 0.000000  ...                               0.000000
+FMT168                                 0.000000  ...                               0.000000
+FMT172                                 0.000000  ...                               0.000000
+FMT180                                 0.001108  ...                               0.000000
+FMT184                                 0.002129  ...                               0.000000
+FMT185                                 0.000000  ...                               0.000000
+FMT186                                 0.004144  ...                               0.000000
+FMT188                                 0.000149  ...                               0.000000
+FMT189                                 0.000080  ...                               0.000000
+FMT190                                 0.000000  ...                               0.000000
+FMT194                                 0.000000  ...                               0.000000
+
+[24 rows x 877 columns]
+
+STDERR:</data>
+</node>
+<node id="3a7ac2e6-bf6b-4fe7-bb5f-e18cb51a48e3">
+  <data key="d3">beta_diversity.py \
+  results/species_baseline.tsv \
+  --metrics bray-curtis \
+  --tax-level msp \
+  -o results/beta_diversity_baseline.tsv</data>
+  <data key="d4">1532.2499999999998</data>
+  <data key="d5">-221.625</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+Beta diversity table saved to: results/beta_diversity_baseline.tsv
+
+STDERR:</data>
+</node>
+<node id="95d52661-b515-463f-ad13-3a1d87545028">
+  <data key="d3">pcoa.py \
+  results/beta_diversity_baseline.tsv \
+  --distance-col bray-curtis \
+  -o results/beta_diversity_baseline_pcoa.tsv</data>
+  <data key="d4">1859.7499999999998</data>
+  <data key="d5">-206.625</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+PCoA results saved to: results/beta_diversity_baseline_pcoa.tsv
+
+STDERR:</data>
+</node>
+<node id="7f6ed5ec-d840-436b-82fc-39bd10329675">
+  <data key="d3">kmeans.py \
+  results/beta_diversity_baseline_pcoa.tsv \
+  -o results/beta_diversity_baseline_pcoa_clusters.tsv</data>
+  <data key="d4">2217.25</data>
+  <data key="d5">-191.625</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+K=2, Silhouette score=0.4785
+K=3, Silhouette score=0.6697
+K=4, Silhouette score=0.5902
+K=5, Silhouette score=0.4994
+K=6, Silhouette score=0.4595
+K=7, Silhouette score=0.4150
+K=8, Silhouette score=0.4004
+K=9, Silhouette score=0.4080
+K=10, Silhouette score=0.3762
+Selected optimal K=3 (Silhouette=0.6697)
+Saved cluster labels to results/beta_diversity_baseline_pcoa_clusters.tsv
+
+STDERR:</data>
+</node>
+<node id="8c7ea16e-5362-413e-ba3e-29877cfa1ab1">
+  <data key="d3">join.py \
+  results/fulltimemeta_baseline.tsv \
+  results/beta_diversity_baseline_pcoa_clusters.tsv \
+  -o results/meta_cluster.tsv</data>
+  <data key="d4">2614.7499999999995</data>
+  <data key="d5">-195.30555555555563</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+
+STDERR:</data>
+</node>
+<node id="00902903-3c70-494a-bc43-c89a4dfc55bd">
+  <data key="d3">chisquared.py \
+  results/meta_cluster.tsv \
+  -o results/meta_cluster_chisq.tsv</data>
+  <data key="d4">3059.1944444444443</data>
+  <data key="d5">-121.97222222222233</data>
+  <data key="d6"></data>
+  <data key="d7">STDOUT:
+                     statistic   p_value
+source    target                        
+subjectID timepoint        NaN  1.000000
+          MELD        1.000000  0.307310
+          aetiology   1.000000  0.356514
+          arm         1.000000  0.391698
+          donorID     1.000000  0.299389
+          healthy     1.000000  0.403808
+          Cluster     1.000000  0.391698
+timepoint subjectID        NaN  1.000000
+          MELD             NaN  1.000000
+          aetiology        NaN  1.000000
+          arm              NaN  1.000000
+          donorID          NaN  1.000000
+          healthy          NaN  1.000000
+          Cluster          NaN  1.000000
+MELD      subjectID   1.000000  0.307310
+          timepoint        NaN  1.000000
+          aetiology   0.666667  0.332820
+          arm         0.632456  0.423190
+          donorID     0.730297  0.372740
+          healthy          NaN  1.000000
+          Cluster     0.673772  0.325694
+aetiology subjectID   1.000000  0.356514
+          timepoint        NaN  1.000000
+          MELD        0.666667  0.332820
+          arm         0.528004  0.191905
+          donorID     0.566947  0.656722
+          healthy          NaN  1.000000
+          Cluster     0.369531  0.590372
+arm       subjectID   1.000000  0.391698
+          timepoint        NaN  1.000000
+          MELD        0.632456  0.423190
+          aetiology   0.528004  0.191905
+          donorID          NaN  1.000000
+          healthy     1.000000  0.000006
+          Cluster     0.516734  0.012207
+donorID   subjectID   1.000000  0.299389
+          timepoint        NaN  1.000000
+          MELD        0.730297  0.372740
+          aetiology   0.566947  0.656722
+          arm              NaN  1.000000
+          healthy          NaN  1.000000
+          Cluster     0.748013  0.200687
+healthy   subjectID   1.000000  0.403808
+          timepoint        NaN  1.000000
+          MELD             NaN  1.000000
+          aetiology        NaN  1.000000
+          arm         1.000000  0.000006
+          donorID          NaN  1.000000
+          Cluster     0.641689  0.007146
+Cluster   subjectID   1.000000  0.391698
+          timepoint        NaN  1.000000
+          MELD        0.673772  0.325694
+          aetiology   0.369531  0.590372
+          arm         0.516734  0.012207
+          donorID     0.748013  0.200687
+          healthy     0.641689  0.007146
+
+STDERR:
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)
+/home/tpor598/FMT_analysis/venv/lib/python3.12/site-packages/scipy/stats/contingency.py:512: RuntimeWarning: invalid value encountered in scalar divide
+  value = phi2 / min(n_cols - 1, n_rows - 1)</data>
+</node>
+<node id="9232745a-c496-483a-b619-c268ef10e52e">
+  <data key="d3">spindle.py \
+  results/beta_diversity_baseline_pcoa.tsv \
+  --meta results/meta_cluster.tsv \
+  --group-col 'healthy' \
+  --figsize 2 2 \
+  -o results/beta_diversity_baseline_pcoa_spindle_healthy.svg</data>
+  <data key="d4">2958.083333333333</data>
+  <data key="d5">-401.97222222222223</data>
+  <data key="d6">ran</data>
+  <data key="d7">STDOUT:
+Saved to results/beta_diversity_baseline_pcoa_spindle_healthy.svg
+
+STDERR:</data>
+</node>
+<node id="ba327c2b-b1c3-451e-9a37-768d18267941">
+  <data key="d3">spindle.py \
+  results/beta_diversity_baseline_pcoa.tsv \
+  --meta results/meta_cluster.tsv \
+  --group-col 'Cluster' \
+  --figsize 2 2 \
+  -o results/beta_diversity_baseline_pcoa_spindle_cluster.svg</data>
+  <data key="d4">2933.6388888888887</data>
+  <data key="d5">-558.6388888888889</data>
+  <data key="d6">ran</data>
+  <data key="d7">STDOUT:
+Saved to results/beta_diversity_baseline_pcoa_spindle_cluster.svg
+
+STDERR:</data>
+</node>
+<node id="ec695eee-1804-4e17-a040-fcb807b20233">
+  <data key="d3">arrange_svgs.py \
+  results/beta_diversity_baseline_pcoa_spindle_cluster.svg \
+  results/beta_diversity_baseline_pcoa_spindle_healthy.svg \
+  --rows 1 \
+  -o results/baseline_spindle_compare.svg</data>
+  <data key="d4">3431.9722222222217</data>
+  <data key="d5">-509.75</data>
+  <data key="d6">ran</data>
+  <data key="d7">STDOUT:
+Output written to results/baseline_spindle_compare.svg
+
+STDERR:</data>
+</node>
+<node id="0ac39c51-9669-4ccd-b624-812f79cb4f49">
+  <data key="d3">inkview results/baseline_spindle_compare.svg</data>
+  <data key="d4">3891.9722222222217</data>
+  <data key="d5">-480.8611111111111</data>
+  <data key="d6">ran</data>
+  <data key="d7">STDOUT:
+
+STDERR:
+/home/tpor598/FMT_analysis/results/baseline_spindle_compare.svg:2: parser error : Attribute xmlns redefined
+iewBox="0 0 399.289 145.897813" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                                               ^
+add_actions_edit_document: no app!
+add_actions_pages: no app!
+add_actions_undo: no app!</data>
+</node>
+<edge source="f984c4be-ff54-4f02-b517-12970d25e9d0" target="350493e0-bb38-42c7-9133-9f33fecf84fa">
+  <data key="d10">e96f8205-c196-49bb-9597-07ce58de2d3b</data>
+  <data key="d11"></data>
+</edge>
+<edge source="54a61731-b783-496f-97ed-cc7c7433c78e" target="350493e0-bb38-42c7-9133-9f33fecf84fa">
+  <data key="d10">e3a44f8c-10f4-47de-b905-0e3d93d98a2b</data>
+  <data key="d11"></data>
+</edge>
+<edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="22b9988a-c494-4d03-98d2-9b42cdae4ac9">
+  <data key="d10">fdf8062b-24a6-43d8-be40-b913bbcf9009</data>
+  <data key="d11"></data>
+</edge>
+<edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="4ec8b00a-189d-4804-b393-7b8b3163218e">
+  <data key="d10">a0f76ab4-2a02-413e-a29a-217452d4173f</data>
+  <data key="d11"></data>
+</edge>
+<edge source="350493e0-bb38-42c7-9133-9f33fecf84fa" target="e699f44e-7adc-4e73-b1e0-27b7b7d97788">
+  <data key="d10">ba3687d7-d8e3-4835-b1e7-9f63373609bf</data>
+  <data key="d11"></data>
+</edge>
+<edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="ee6f8d64-cb84-4bbb-9b5c-f4138a262105">
+  <data key="d10">2252fd8e-fa07-4e55-8ba0-acc87c999d33</data>
+  <data key="d11"></data>
+</edge>
+<edge source="22b9988a-c494-4d03-98d2-9b42cdae4ac9" target="0f27a143-ec41-41ea-aeda-a6dfd6899c3e">
+  <data key="d10">c4236b1e-83c2-4970-83e5-e30125b4bc92</data>
+  <data key="d11"></data>
+</edge>
+<edge source="ee6f8d64-cb84-4bbb-9b5c-f4138a262105" target="5fffbe18-aa93-4d9d-b251-32eb6414e4db">
+  <data key="d10">aae31e99-72ca-4205-9c2f-f2ab3aec2124</data>
+  <data key="d11"></data>
+</edge>
+<edge source="6b742592-a19b-441d-b108-08bf53bc8367" target="77c91e57-7507-4d5e-9446-fea2af8551c0">
+  <data key="d10">056c898e-a924-4fc5-aff1-69cb2ad3cc23</data>
+  <data key="d11"></data>
+</edge>
+<edge source="5fffbe18-aa93-4d9d-b251-32eb6414e4db" target="6b742592-a19b-441d-b108-08bf53bc8367">
+  <data key="d10">d73827fe-220d-4dcc-9b7a-feb129357986</data>
+  <data key="d11"></data>
+</edge>
+<edge source="5fffbe18-aa93-4d9d-b251-32eb6414e4db" target="7a8c3793-ac20-4f18-b73f-c56b79807f64">
+  <data key="d10">a96abaf0-aa67-46d4-a735-b60be8af91c0</data>
+  <data key="d11"></data>
+</edge>
+<edge source="5fffbe18-aa93-4d9d-b251-32eb6414e4db" target="634b3ab5-2b7b-4137-997d-f421a41d364b">
+  <data key="d10">c53ae35b-c20c-478b-885f-a941b9674dd4</data>
+  <data key="d11"></data>
+</edge>
+<edge source="634b3ab5-2b7b-4137-997d-f421a41d364b" target="77c91e57-7507-4d5e-9446-fea2af8551c0">
+  <data key="d10">47a75226-ec96-4717-b55a-124cc6476834</data>
+  <data key="d11"></data>
+</edge>
+<edge source="7a8c3793-ac20-4f18-b73f-c56b79807f64" target="77c91e57-7507-4d5e-9446-fea2af8551c0">
+  <data key="d10">8489b06d-66ab-45fa-ae82-d0d234ad558d</data>
+  <data key="d11"></data>
+</edge>
+<edge source="77c91e57-7507-4d5e-9446-fea2af8551c0" target="29a8388c-0449-4240-ad89-68256e613d89">
+  <data key="d10">770dafac-665e-4e9c-aa6d-05d9ae0ef80c</data>
+  <data key="d11"></data>
+</edge>
+<edge source="60b0f42a-52df-41be-9d5d-0d9f43ddbeb6" target="350493e0-bb38-42c7-9133-9f33fecf84fa">
+  <data key="d10">19349ea0-344a-434b-a7ab-7da69e17304c</data>
+  <data key="d11"></data>
+</edge>
 <edge source="e699f44e-7adc-4e73-b1e0-27b7b7d97788" target="ef50c76b-60e4-4777-a9f3-b23e525a4792"/>
-<edge source="e699f44e-7adc-4e73-b1e0-27b7b7d97788" target="275b94db-9f14-4ee0-afad-a53131ea6d65"/>
+<edge source="e699f44e-7adc-4e73-b1e0-27b7b7d97788" target="275b94db-9f14-4ee0-afad-a53131ea6d65">
+  <data key="d10">5a3ed373-95db-4369-91fd-47a1fbd05f21</data>
+  <data key="d11"></data>
+</edge>
 <edge source="ef50c76b-60e4-4777-a9f3-b23e525a4792" target="f0a9c12f-ea22-4e52-8135-70a6734a4da4"/>
 <edge source="9f331eb6-99b2-4c77-b258-04bca1586b5b" target="0ee42857-10be-4047-a9b2-6b99a63bc904"/>
-<edge source="275b94db-9f14-4ee0-afad-a53131ea6d65" target="9f331eb6-99b2-4c77-b258-04bca1586b5b"/>
+<edge source="275b94db-9f14-4ee0-afad-a53131ea6d65" target="9f331eb6-99b2-4c77-b258-04bca1586b5b">
+  <data key="d10">6687c358-f4a3-46b5-8208-2193583b97fc</data>
+  <data key="d11"></data>
+</edge>
+<edge source="0f27a143-ec41-41ea-aeda-a6dfd6899c3e" target="cb0666a3-31a3-4687-9e1a-0fadf557e315">
+  <data key="d10">08d83773-ae48-48d6-98ab-04b98ca99141</data>
+  <data key="d11"></data>
+</edge>
+<edge source="0f27a143-ec41-41ea-aeda-a6dfd6899c3e" target="d86b6d51-f482-42e3-8ce8-098aebe357e8">
+  <data key="d10">dffb181f-b2d1-4724-9d93-58123484698a</data>
+  <data key="d11"></data>
+</edge>
+<edge source="0f27a143-ec41-41ea-aeda-a6dfd6899c3e" target="3a7ac2e6-bf6b-4fe7-bb5f-e18cb51a48e3">
+  <data key="d10">9ff62d64-f0ca-4e69-b046-4b6a6859e026</data>
+  <data key="d11"></data>
+</edge>
+<edge source="3a7ac2e6-bf6b-4fe7-bb5f-e18cb51a48e3" target="95d52661-b515-463f-ad13-3a1d87545028">
+  <data key="d10">aabf0966-4d79-4889-858e-097ba48d04d5</data>
+  <data key="d11"></data>
+</edge>
+<edge source="95d52661-b515-463f-ad13-3a1d87545028" target="7f6ed5ec-d840-436b-82fc-39bd10329675">
+  <data key="d10">3fae93ef-d198-40aa-98d3-0d67711a4795</data>
+  <data key="d11"></data>
+</edge>
+<edge source="7f6ed5ec-d840-436b-82fc-39bd10329675" target="8c7ea16e-5362-413e-ba3e-29877cfa1ab1">
+  <data key="d10">9ba29e5f-f44b-4e83-b2b0-79bfcf4eeb9d</data>
+  <data key="d11"></data>
+</edge>
+<edge source="8c7ea16e-5362-413e-ba3e-29877cfa1ab1" target="00902903-3c70-494a-bc43-c89a4dfc55bd">
+  <data key="d10">0d5904d2-0dd3-4163-a764-a2d0cb75d5f3</data>
+  <data key="d11"></data>
+</edge>
+<edge source="8c7ea16e-5362-413e-ba3e-29877cfa1ab1" target="9232745a-c496-483a-b619-c268ef10e52e">
+  <data key="d10">c3492767-4345-402c-8de0-9df662163727</data>
+  <data key="d11"></data>
+</edge>
+<edge source="8c7ea16e-5362-413e-ba3e-29877cfa1ab1" target="ba327c2b-b1c3-451e-9a37-768d18267941">
+  <data key="d10">b3b8847c-3f8e-4339-8d1d-f00be1fd2eb8</data>
+  <data key="d11"></data>
+</edge>
+<edge source="9232745a-c496-483a-b619-c268ef10e52e" target="ec695eee-1804-4e17-a040-fcb807b20233">
+  <data key="d10">2fd538cd-f33a-446a-94b7-10ff5e320d22</data>
+  <data key="d11"></data>
+</edge>
+<edge source="ba327c2b-b1c3-451e-9a37-768d18267941" target="ec695eee-1804-4e17-a040-fcb807b20233">
+  <data key="d10">bc22628f-9057-459b-b3fe-533822858640</data>
+  <data key="d11"></data>
+</edge>
+<edge source="ec695eee-1804-4e17-a040-fcb807b20233" target="0ac39c51-9669-4ccd-b624-812f79cb4f49">
+  <data key="d10">a3c18d3d-5c90-4314-be85-789cf4b0ec72</data>
+  <data key="d11"></data>
+</edge>
 </graph></graphml>
