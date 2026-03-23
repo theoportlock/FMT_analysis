@@ -20,4 +20,5 @@ var = {'id':'subjectID',
 timemeta = timemeta[var.keys()]
 timemeta = timemeta.rename(columns = var)
 timemeta.index.name = 'sampleID'
+timemeta['timeID'] = "T" + timemeta.timepoint.astype(int).astype(str)
 timemeta.to_csv('results/timemeta.tsv', sep='\t')

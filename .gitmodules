@@ -1,3 +1,6 @@
 [submodule "metatoolkit"]
 	path = metatoolkit
 	url = https://www.github.com/theoportlock/metatoolkit
+[submodule "maaslin3"]
+	path = maaslin3
+	url = https://github.com/biobakery/maaslin3.git
